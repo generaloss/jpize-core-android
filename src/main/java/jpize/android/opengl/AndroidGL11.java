@@ -46,6 +46,14 @@ public class AndroidGL11 implements GLI11 {
             .position(0);
     }
 
+    protected static LongBuffer createBuffer(long[] array) {
+        return ByteBuffer.allocateDirect(array.length * Long.BYTES)
+                .order(ByteOrder.nativeOrder())
+                .asLongBuffer()
+                .put(array)
+                .position(0);
+    }
+
     protected static FloatBuffer createBuffer(float[] array) {
         return ByteBuffer.allocateDirect(array.length * Float.BYTES)
             .order(ByteOrder.nativeOrder())

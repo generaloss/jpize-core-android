@@ -8,417 +8,421 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public void glBindBuffer(int target, int buffer) {
-        GLES32.glBindBuffer(target, buffer);
+        GLES11.glBindBuffer(target, buffer);
     }
 
     @Override
     public void nglDeleteBuffers(int n, long buffers) {
-        GLES32.nglDeleteBuffers(n, buffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glDeleteBuffers(IntBuffer buffers) {
-        GLES32.glDeleteBuffers(buffers);
+        GLES11.glDeleteBuffers(buffers.limit(), buffers);
     }
 
     @Override
     public void glDeleteBuffers(int buffer) {
-        GLES32.glDeleteBuffers(buffer);
+        tmp_intArray[0] = buffer;
+        GLES11.glDeleteBuffers(1, tmp_intArray, 0);
     }
 
     @Override
     public void nglGenBuffers(int n, long buffers) {
-        GLES32.nglGenBuffers(n, buffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGenBuffers(IntBuffer buffers) {
-        GLES32.glGenBuffers(buffers);
+        GLES11.glGenBuffers(buffers.limit(), buffers);
     }
 
     @Override
     public int glGenBuffers() {
-        return GLES32.glGenBuffers();
+        GLES11.glGenBuffers(1, tmp_intArray, 0);
+        return tmp_intArray[0];
     }
 
     @Override
     public boolean glIsBuffer(int buffer) {
-        return GLES32.glIsBuffer(buffer);
+        return GLES11.glIsBuffer(buffer);
     }
 
     @Override
     public void nglBufferData(int target, long size, long data, int usage) {
-        GLES32.nglBufferData(target, size, data, usage);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glBufferData(int target, long size, int usage) {
-        GLES32.glBufferData(target, size, usage);
+        throw new UnsupportedOperationException(); // args
     }
 
     @Override
     public void glBufferData(int target, ByteBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage); // int target, int size, Buffer data, int usage
     }
 
     @Override
     public void glBufferData(int target, ShortBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage);
     }
 
     @Override
     public void glBufferData(int target, IntBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage);
     }
 
     @Override
     public void glBufferData(int target, LongBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage);
     }
 
     @Override
     public void glBufferData(int target, FloatBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage);
     }
 
     @Override
     public void glBufferData(int target, DoubleBuffer data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.limit(), data, usage);
     }
 
     @Override
     public void nglBufferSubData(int target, long offset, long size, long data) {
-        GLES32.nglBufferSubData(target, offset, size, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glBufferSubData(int target, long offset, ByteBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, ShortBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, IntBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, LongBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, FloatBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, DoubleBuffer data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
 
     @Override
     public void nglGetBufferSubData(int target, long offset, long size, long data) {
-        GLES32.nglGetBufferSubData(target, offset, size, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, ByteBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, ShortBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, IntBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, LongBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, FloatBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, DoubleBuffer data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long nglMapBuffer(int target, int access) {
-        return GLES32.nglMapBuffer(target, access);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ByteBuffer glMapBuffer(int target, int access) {
-        return GLES32.glMapBuffer(target, access);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ByteBuffer glMapBuffer(int target, int access, ByteBuffer old_buffer) {
-        return GLES32.glMapBuffer(target, access, old_buffer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ByteBuffer glMapBuffer(int target, int access, long length, ByteBuffer old_buffer) {
-        return GLES32.glMapBuffer(target, access, length, old_buffer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean glUnmapBuffer(int target) {
-        return GLES32.glUnmapBuffer(target);
+        return GLES30.glUnmapBuffer(target);
     }
 
     @Override
     public void nglGetBufferParameteriv(int target, int pname, long params) {
-        GLES32.nglGetBufferParameteriv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
-        GLES32.glGetBufferParameteriv(target, pname, params);
+        GLES11.glGetBufferParameteriv(target, pname, params);
     }
 
     @Override
     public int glGetBufferParameteri(int target, int pname) {
-        return GLES32.glGetBufferParameteri(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetBufferPointerv(int target, int pname, long params) {
-        GLES32.nglGetBufferPointerv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long glGetBufferPointer(int target, int pname) {
-        return GLES32.glGetBufferPointer(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGenQueries(int n, long ids) {
-        GLES32.nglGenQueries(n, ids);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGenQueries(IntBuffer ids) {
-        GLES32.glGenQueries(ids);
+        GLES30.glGenQueries(ids.limit(), ids);
     }
 
     @Override
     public int glGenQueries() {
-        return GLES32.glGenQueries();
+        GLES30.glGenQueries(1, tmp_intArray, 0);
+        return tmp_intArray[0];
     }
 
     @Override
     public void nglDeleteQueries(int n, long ids) {
-        GLES32.nglDeleteQueries(n, ids);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glDeleteQueries(IntBuffer ids) {
-        GLES32.glDeleteQueries(ids);
+        GLES30.glDeleteQueries(ids.limit(), ids);
     }
 
     @Override
     public void glDeleteQueries(int id) {
-        GLES32.glDeleteQueries(id);
+        tmp_intArray[0] = id;
+        GLES30.glDeleteQueries(1, tmp_intArray, 0);
     }
 
     @Override
     public boolean glIsQuery(int id) {
-        return GLES32.glIsQuery(id);
+        return GLES30.glIsQuery(id);
     }
 
     @Override
     public void glBeginQuery(int target, int id) {
-        GLES32.glBeginQuery(target, id);
+        GLES30.glBeginQuery(target, id);
     }
 
     @Override
     public void glEndQuery(int target) {
-        GLES32.glEndQuery(target);
+        GLES30.glEndQuery(target);
     }
 
     @Override
     public void nglGetQueryiv(int target, int pname, long params) {
-        GLES32.nglGetQueryiv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetQueryiv(int target, int pname, IntBuffer params) {
-        GLES32.glGetQueryiv(target, pname, params);
+        GLES30.glGetQueryiv(target, pname, params);
     }
 
     @Override
     public int glGetQueryi(int target, int pname) {
-        return GLES32.glGetQueryi(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetQueryObjectiv(int id, int pname, long params) {
-        GLES32.nglGetQueryObjectiv(id, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetQueryObjectiv(int id, int pname, IntBuffer params) {
-        GLES32.glGetQueryObjectiv(id, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetQueryObjectiv(int id, int pname, long params) {
-        GLES32.glGetQueryObjectiv(id, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetQueryObjecti(int id, int pname) {
-        return GLES32.glGetQueryObjecti(id, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetQueryObjectuiv(int id, int pname, long params) {
-        GLES32.nglGetQueryObjectuiv(id, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
-        GLES32.glGetQueryObjectuiv(id, pname, params);
+        GLES30.glGetQueryObjectuiv(id, pname, params);
     }
 
     @Override
     public void glGetQueryObjectuiv(int id, int pname, long params) {
-        GLES32.glGetQueryObjectuiv(id, pname, params);
+        throw new UnsupportedOperationException(); // args
     }
 
     @Override
     public int glGetQueryObjectui(int id, int pname) {
-        return GLES32.glGetQueryObjectui(id, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glDeleteBuffers(int[] buffers) {
-        GLES32.glDeleteBuffers(buffers);
+        GLES11.glDeleteBuffers(buffers.length, buffers, 0);
     }
 
     @Override
     public void glGenBuffers(int[] buffers) {
-        GLES32.glGenBuffers(buffers);
+        GLES11.glGenBuffers(buffers.length, buffers, 0);
     }
 
     @Override
     public void glBufferData(int target, short[] data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, int[] data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, long[] data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, float[] data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, double[] data, int usage) {
-        GLES32.glBufferData(target, data, usage);
+        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferSubData(int target, long offset, short[] data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.length, createBuffer(data));
     }
 
     @Override
     public void glBufferSubData(int target, long offset, int[] data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.length, createBuffer(data));
     }
 
     @Override
     public void glBufferSubData(int target, long offset, long[] data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.length, createBuffer(data));
     }
 
     @Override
     public void glBufferSubData(int target, long offset, float[] data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.length, createBuffer(data));
     }
 
     @Override
     public void glBufferSubData(int target, long offset, double[] data) {
-        GLES32.glBufferSubData(target, offset, data);
+        GLES11.glBufferSubData(target, (int) offset, data.length, createBuffer(data));
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, short[] data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, int[] data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, long[] data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, float[] data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferSubData(int target, long offset, double[] data) {
-        GLES32.glGetBufferSubData(target, offset, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetBufferParameteriv(int target, int pname, int[] params) {
-        GLES32.glGetBufferParameteriv(target, pname, params);
+        GLES11.glGetBufferParameteriv(target, pname, params, 0);
     }
 
     @Override
     public void glGenQueries(int[] ids) {
-        GLES32.glGenQueries(ids);
+        GLES30.glGenQueries(ids.length, ids, 0);
     }
 
     @Override
     public void glDeleteQueries(int[] ids) {
-        GLES32.glDeleteQueries(ids);
+        GLES30.glDeleteQueries(ids.length, ids, 0);
     }
 
     @Override
     public void glGetQueryiv(int target, int pname, int[] params) {
-        GLES32.glGetQueryiv(target, pname, params);
+        GLES30.glGetQueryiv(target, pname, params, 0);
     }
 
     @Override
     public void glGetQueryObjectiv(int id, int pname, int[] params) {
-        GLES32.glGetQueryObjectiv(id, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetQueryObjectuiv(int id, int pname, int[] params) {
-        GLES32.glGetQueryObjectuiv(id, pname, params);
+        GLES30.glGetQueryObjectuiv(id, pname, params, 0);
     }
 
 }
