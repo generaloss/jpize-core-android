@@ -3,6 +3,7 @@ package jpize.android.opengl;
 import android.opengl.*;
 import jpize.opengl.gl.GLI20;
 import java.nio.*;
+import java.nio.charset.StandardCharsets;
 
 public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
@@ -48,17 +49,20 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglShaderSource(int shader, int count, long strings, long length) {
-        GLES32.nglShaderSource(shader, count, strings, length);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glShaderSource(int shader, CharSequence... strings) {
-        GLES32.glShaderSource(shader, strings);
+        final StringBuilder string = new StringBuilder();
+        for(CharSequence charSequence: strings)
+            string.append(charSequence);
+        GLES32.glShaderSource(shader, string.toString());
     }
 
     @Override
     public void glShaderSource(int shader, CharSequence string) {
-        GLES32.glShaderSource(shader, string);
+        GLES32.glShaderSource(shader, string.toString());
     }
 
     @Override
@@ -123,117 +127,117 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglUniform1fv(int location, int count, long value) {
-        GLES32.nglUniform1fv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform1fv(int location, FloatBuffer value) {
-        GLES32.glUniform1fv(location, value);
+        GLES32.glUniform1fv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform2fv(int location, int count, long value) {
-        GLES32.nglUniform2fv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform2fv(int location, FloatBuffer value) {
-        GLES32.glUniform2fv(location, value);
+        GLES32.glUniform2fv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform3fv(int location, int count, long value) {
-        GLES32.nglUniform3fv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform3fv(int location, FloatBuffer value) {
-        GLES32.glUniform3fv(location, value);
+        GLES32.glUniform3fv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform4fv(int location, int count, long value) {
-        GLES32.nglUniform4fv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform4fv(int location, FloatBuffer value) {
-        GLES32.glUniform4fv(location, value);
+        GLES32.glUniform4fv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform1iv(int location, int count, long value) {
-        GLES32.nglUniform1iv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform1iv(int location, IntBuffer value) {
-        GLES32.glUniform1iv(location, value);
+        GLES32.glUniform1iv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform2iv(int location, int count, long value) {
-        GLES32.nglUniform2iv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform2iv(int location, IntBuffer value) {
-        GLES32.glUniform2iv(location, value);
+        GLES32.glUniform2iv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform3iv(int location, int count, long value) {
-        GLES32.nglUniform3iv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform3iv(int location, IntBuffer value) {
-        GLES32.glUniform3iv(location, value);
+        GLES32.glUniform3iv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniform4iv(int location, int count, long value) {
-        GLES32.nglUniform4iv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniform4iv(int location, IntBuffer value) {
-        GLES32.glUniform4iv(location, value);
+        GLES32.glUniform4iv(location, value.limit(), value);
     }
 
     @Override
     public void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
-        GLES32.nglUniformMatrix2fv(location, count, transpose, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix2fv(location, transpose, value);
+        GLES32.glUniformMatrix2fv(location, value.limit(), transpose, value);
     }
 
     @Override
     public void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
-        GLES32.nglUniformMatrix3fv(location, count, transpose, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix3fv(location, transpose, value);
+        GLES32.glUniformMatrix3fv(location, value.limit(), transpose, value);
     }
 
     @Override
     public void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
-        GLES32.nglUniformMatrix4fv(location, count, transpose, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix4fv(location, transpose, value);
+        GLES32.glUniformMatrix4fv(location, value.limit(), transpose, value);
     }
 
     @Override
     public void nglGetShaderiv(int shader, int pname, long params) {
-        GLES32.nglGetShaderiv(shader, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -243,12 +247,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetShaderi(int shader, int pname) {
-        return GLES32.glGetShaderi(shader, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetProgramiv(int program, int pname, long params) {
-        GLES32.nglGetProgramiv(program, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -258,22 +262,30 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetProgrami(int program, int pname) {
-        return GLES32.glGetProgrami(program, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
-        GLES32.nglGetShaderInfoLog(shader, maxLength, length, infoLog);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
-        GLES32.glGetShaderInfoLog(shader, length, infoLog);
+        final int maxLength = length.get();
+        String log = GLES32.glGetShaderInfoLog(shader);
+        if(log.length() > maxLength)
+            log = log.substring(0, maxLength);
+        infoLog.put(log.getBytes());
+        infoLog.position(0);
     }
 
     @Override
     public String glGetShaderInfoLog(int shader, int maxLength) {
-        return GLES32.glGetShaderInfoLog(shader, maxLength);
+        final String log = GLES32.glGetShaderInfoLog(shader);
+        if(log.length() > maxLength)
+            return log.substring(0, maxLength);
+        return log;
     }
 
     @Override
@@ -283,17 +295,25 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
-        GLES32.nglGetProgramInfoLog(program, maxLength, length, infoLog);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
-        GLES32.glGetProgramInfoLog(program, length, infoLog);
+        final int maxLength = length.get();
+        String log = GLES32.glGetProgramInfoLog(program);
+        if(log.length() > maxLength)
+            log = log.substring(0, maxLength);
+        infoLog.put(log.getBytes());
+        infoLog.position(0);
     }
 
     @Override
     public String glGetProgramInfoLog(int program, int maxLength) {
-        return GLES32.glGetProgramInfoLog(program, maxLength);
+        final String log = GLES32.glGetProgramInfoLog(program);
+        if(log.length() > maxLength)
+            return log.substring(0, maxLength);
+        return log;
     }
 
     @Override
@@ -303,32 +323,33 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
-        GLES32.nglGetAttachedShaders(program, maxCount, count, shaders);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
-        GLES32.glGetAttachedShaders(program, count, shaders);
+        GLES32.glGetAttachedShaders(program, count.limit(), count, shaders);
     }
 
     @Override
     public int nglGetUniformLocation(int program, long name) {
-        return GLES32.nglGetUniformLocation(program, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetUniformLocation(int program, ByteBuffer name) {
-        return GLES32.glGetUniformLocation(program, name);
+        final String stringName = StandardCharsets.UTF_8.decode(name).toString();
+        return GLES32.glGetUniformLocation(program, stringName);
     }
 
     @Override
     public int glGetUniformLocation(int program, CharSequence name) {
-        return GLES32.glGetUniformLocation(program, name);
+        return GLES32.glGetUniformLocation(program, name.toString());
     }
 
     @Override
     public void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
-        GLES32.nglGetActiveUniform(program, index, maxLength, length, size, type, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -348,7 +369,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetUniformfv(int program, int location, long params) {
-        GLES32.nglGetUniformfv(program, location, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -358,12 +379,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public float glGetUniformf(int program, int location) {
-        return GLES32.glGetUniformf(program, location);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetUniformiv(int program, int location, long params) {
-        GLES32.nglGetUniformiv(program, location, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -373,12 +394,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetUniformi(int program, int location) {
-        return GLES32.glGetUniformi(program, location);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetShaderSource(int shader, int maxLength, long length, long source) {
-        GLES32.nglGetShaderSource(shader, maxLength, length, source);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -403,12 +424,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib1s(int index, short v0) {
-        GLES32.glVertexAttrib1s(index, v0);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib1d(int index, double v0) {
-        GLES32.glVertexAttrib1d(index, v0);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -418,12 +439,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib2s(int index, short v0, short v1) {
-        GLES32.glVertexAttrib2s(index, v0, v1);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib2d(int index, double v0, double v1) {
-        GLES32.glVertexAttrib2d(index, v0, v1);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -433,12 +454,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib3s(int index, short v0, short v1, short v2) {
-        GLES32.glVertexAttrib3s(index, v0, v1, v2);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib3d(int index, double v0, double v1, double v2) {
-        GLES32.glVertexAttrib3d(index, v0, v1, v2);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -448,22 +469,22 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
-        GLES32.glVertexAttrib4s(index, v0, v1, v2, v3);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
-        GLES32.glVertexAttrib4d(index, v0, v1, v2, v3);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
-        GLES32.glVertexAttrib4Nub(index, x, y, z, w);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib1fv(int index, long v) {
-        GLES32.nglVertexAttrib1fv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -473,27 +494,27 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglVertexAttrib1sv(int index, long v) {
-        GLES32.nglVertexAttrib1sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib1sv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib1sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib1dv(int index, long v) {
-        GLES32.nglVertexAttrib1dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib1dv(int index, DoubleBuffer v) {
-        GLES32.glVertexAttrib1dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib2fv(int index, long v) {
-        GLES32.nglVertexAttrib2fv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -503,27 +524,27 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglVertexAttrib2sv(int index, long v) {
-        GLES32.nglVertexAttrib2sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib2sv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib2sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib2dv(int index, long v) {
-        GLES32.nglVertexAttrib2dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib2dv(int index, DoubleBuffer v) {
-        GLES32.glVertexAttrib2dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib3fv(int index, long v) {
-        GLES32.nglVertexAttrib3fv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -533,27 +554,27 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglVertexAttrib3sv(int index, long v) {
-        GLES32.nglVertexAttrib3sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib3sv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib3sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib3dv(int index, long v) {
-        GLES32.nglVertexAttrib3dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib3dv(int index, DoubleBuffer v) {
-        GLES32.glVertexAttrib3dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4fv(int index, long v) {
-        GLES32.nglVertexAttrib4fv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -563,137 +584,137 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglVertexAttrib4sv(int index, long v) {
-        GLES32.nglVertexAttrib4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4sv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4dv(int index, long v) {
-        GLES32.nglVertexAttrib4dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4dv(int index, DoubleBuffer v) {
-        GLES32.glVertexAttrib4dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4iv(int index, long v) {
-        GLES32.nglVertexAttrib4iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4iv(int index, IntBuffer v) {
-        GLES32.glVertexAttrib4iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4bv(int index, long v) {
-        GLES32.nglVertexAttrib4bv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4bv(int index, ByteBuffer v) {
-        GLES32.glVertexAttrib4bv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4ubv(int index, long v) {
-        GLES32.nglVertexAttrib4ubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4ubv(int index, ByteBuffer v) {
-        GLES32.glVertexAttrib4ubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4usv(int index, long v) {
-        GLES32.nglVertexAttrib4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4usv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4uiv(int index, long v) {
-        GLES32.nglVertexAttrib4uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4uiv(int index, IntBuffer v) {
-        GLES32.glVertexAttrib4uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Nbv(int index, long v) {
-        GLES32.nglVertexAttrib4Nbv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nbv(int index, ByteBuffer v) {
-        GLES32.glVertexAttrib4Nbv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Nsv(int index, long v) {
-        GLES32.nglVertexAttrib4Nsv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nsv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib4Nsv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Niv(int index, long v) {
-        GLES32.nglVertexAttrib4Niv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Niv(int index, IntBuffer v) {
-        GLES32.glVertexAttrib4Niv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Nubv(int index, long v) {
-        GLES32.nglVertexAttrib4Nubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nubv(int index, ByteBuffer v) {
-        GLES32.glVertexAttrib4Nubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Nusv(int index, long v) {
-        GLES32.nglVertexAttrib4Nusv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nusv(int index, ShortBuffer v) {
-        GLES32.glVertexAttrib4Nusv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttrib4Nuiv(int index, long v) {
-        GLES32.nglVertexAttrib4Nuiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nuiv(int index, IntBuffer v) {
-        GLES32.glVertexAttrib4Nuiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-        GLES32.nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -733,7 +754,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglBindAttribLocation(int program, int index, long name) {
-        GLES32.nglBindAttribLocation(program, index, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -748,7 +769,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
-        GLES32.nglGetActiveAttrib(program, index, maxLength, length, size, type, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -768,7 +789,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int nglGetAttribLocation(int program, long name) {
-        return GLES32.nglGetAttribLocation(program, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -783,7 +804,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetVertexAttribiv(int index, int pname, long params) {
-        GLES32.nglGetVertexAttribiv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -793,12 +814,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetVertexAttribi(int index, int pname) {
-        return GLES32.glGetVertexAttribi(index, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetVertexAttribfv(int index, int pname, long params) {
-        GLES32.nglGetVertexAttribfv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -808,27 +829,27 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void nglGetVertexAttribdv(int index, int pname, long params) {
-        GLES32.nglGetVertexAttribdv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetVertexAttribdv(int index, int pname, DoubleBuffer params) {
-        GLES32.glGetVertexAttribdv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
-        GLES32.nglGetVertexAttribPointerv(index, pname, pointer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long glGetVertexAttribPointer(int index, int pname) {
-        return GLES32.glGetVertexAttribPointer(index, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglDrawBuffers(int n, long bufs) {
-        GLES32.nglDrawBuffers(n, bufs);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -968,12 +989,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib1sv(int index, short[] v) {
-        GLES32.glVertexAttrib1sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib1dv(int index, double[] v) {
-        GLES32.glVertexAttrib1dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -983,12 +1004,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib2sv(int index, short[] v) {
-        GLES32.glVertexAttrib2sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib2dv(int index, double[] v) {
-        GLES32.glVertexAttrib2dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -998,12 +1019,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib3sv(int index, short[] v) {
-        GLES32.glVertexAttrib3sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib3dv(int index, double[] v) {
-        GLES32.glVertexAttrib3dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1013,47 +1034,47 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib4sv(int index, short[] v) {
-        GLES32.glVertexAttrib4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4dv(int index, double[] v) {
-        GLES32.glVertexAttrib4dv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4iv(int index, int[] v) {
-        GLES32.glVertexAttrib4iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4usv(int index, short[] v) {
-        GLES32.glVertexAttrib4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4uiv(int index, int[] v) {
-        GLES32.glVertexAttrib4uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nsv(int index, short[] v) {
-        GLES32.glVertexAttrib4Nsv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Niv(int index, int[] v) {
-        GLES32.glVertexAttrib4Niv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nusv(int index, short[] v) {
-        GLES32.glVertexAttrib4Nusv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttrib4Nuiv(int index, int[] v) {
-        GLES32.glVertexAttrib4Nuiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1073,7 +1094,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetVertexAttribdv(int index, int pname, double[] params) {
-        GLES32.glGetVertexAttribdv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override

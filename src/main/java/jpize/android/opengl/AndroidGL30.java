@@ -8,7 +8,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public long nglGetStringi(int name, int index) {
-        return GLES32.nglGetStringi(name, index);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -18,7 +18,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglClearBufferiv(int buffer, int drawbuffer, long value) {
-        GLES32.nglClearBufferiv(buffer, drawbuffer, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglClearBufferuiv(int buffer, int drawbuffer, long value) {
-        GLES32.nglClearBufferuiv(buffer, drawbuffer, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglClearBufferfv(int buffer, int drawbuffer, long value) {
-        GLES32.nglClearBufferfv(buffer, drawbuffer, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -53,17 +53,17 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glVertexAttribI1i(int index, int x) {
-        GLES32.glVertexAttribI1i(index, x);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2i(int index, int x, int y) {
-        GLES32.glVertexAttribI2i(index, x, y);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3i(int index, int x, int y, int z) {
-        GLES32.glVertexAttribI3i(index, x, y, z);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -73,17 +73,17 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glVertexAttribI1ui(int index, int x) {
-        GLES32.glVertexAttribI1ui(index, x);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2ui(int index, int x, int y) {
-        GLES32.glVertexAttribI2ui(index, x, y);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3ui(int index, int x, int y, int z) {
-        GLES32.glVertexAttribI3ui(index, x, y, z);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -93,37 +93,37 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglVertexAttribI1iv(int index, long v) {
-        GLES32.nglVertexAttribI1iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI1iv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI1iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI2iv(int index, long v) {
-        GLES32.nglVertexAttribI2iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2iv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI2iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI3iv(int index, long v) {
-        GLES32.nglVertexAttribI3iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3iv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI3iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI4iv(int index, long v) {
-        GLES32.nglVertexAttribI4iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -133,37 +133,37 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglVertexAttribI1uiv(int index, long v) {
-        GLES32.nglVertexAttribI1uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI1uiv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI1uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI2uiv(int index, long v) {
-        GLES32.nglVertexAttribI2uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2uiv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI2uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI3uiv(int index, long v) {
-        GLES32.nglVertexAttribI3uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3uiv(int index, IntBuffer v) {
-        GLES32.glVertexAttribI3uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI4uiv(int index, long v) {
-        GLES32.nglVertexAttribI4uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -173,47 +173,47 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglVertexAttribI4bv(int index, long v) {
-        GLES32.nglVertexAttribI4bv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI4bv(int index, ByteBuffer v) {
-        GLES32.glVertexAttribI4bv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI4sv(int index, long v) {
-        GLES32.nglVertexAttribI4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI4sv(int index, ShortBuffer v) {
-        GLES32.glVertexAttribI4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI4ubv(int index, long v) {
-        GLES32.nglVertexAttribI4ubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI4ubv(int index, ByteBuffer v) {
-        GLES32.glVertexAttribI4ubv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribI4usv(int index, long v) {
-        GLES32.nglVertexAttribI4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI4usv(int index, ShortBuffer v) {
-        GLES32.glVertexAttribI4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
-        GLES32.nglVertexAttribIPointer(index, size, type, stride, pointer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -238,7 +238,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetVertexAttribIiv(int index, int pname, long params) {
-        GLES32.nglGetVertexAttribIiv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -248,12 +248,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetVertexAttribIi(int index, int pname) {
-        return GLES32.glGetVertexAttribIi(index, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetVertexAttribIuiv(int index, int pname, long params) {
-        GLES32.nglGetVertexAttribIuiv(index, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -263,7 +263,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetVertexAttribIui(int index, int pname) {
-        return GLES32.glGetVertexAttribIui(index, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -288,7 +288,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglUniform1uiv(int location, int count, long value) {
-        GLES32.nglUniform1uiv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -298,7 +298,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglUniform2uiv(int location, int count, long value) {
-        GLES32.nglUniform2uiv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -308,7 +308,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglUniform3uiv(int location, int count, long value) {
-        GLES32.nglUniform3uiv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -318,7 +318,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglUniform4uiv(int location, int count, long value) {
-        GLES32.nglUniform4uiv(location, count, value);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -328,7 +328,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetUniformuiv(int program, int location, long params) {
-        GLES32.nglGetUniformuiv(program, location, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -338,27 +338,27 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetUniformui(int program, int location) {
-        return GLES32.glGetUniformui(program, location);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglBindFragDataLocation(int program, int colorNumber, long name) {
-        GLES32.nglBindFragDataLocation(program, colorNumber, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glBindFragDataLocation(int program, int colorNumber, ByteBuffer name) {
-        GLES32.glBindFragDataLocation(program, colorNumber, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glBindFragDataLocation(int program, int colorNumber, CharSequence name) {
-        GLES32.glBindFragDataLocation(program, colorNumber, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int nglGetFragDataLocation(int program, long name) {
-        return GLES32.nglGetFragDataLocation(program, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -373,17 +373,17 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glBeginConditionalRender(int id, int mode) {
-        GLES32.glBeginConditionalRender(id, mode);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glEndConditionalRender() {
-        GLES32.glEndConditionalRender();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long nglMapBufferRange(int target, long offset, long length, int access) {
-        return GLES32.nglMapBufferRange(target, offset, length, access);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -403,7 +403,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glClampColor(int target, int clamp) {
-        GLES32.glClampColor(target, clamp);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -418,7 +418,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglDeleteRenderbuffers(int n, long renderbuffers) {
-        GLES32.nglDeleteRenderbuffers(n, renderbuffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -433,7 +433,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGenRenderbuffers(int n, long renderbuffers) {
-        GLES32.nglGenRenderbuffers(n, renderbuffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -458,7 +458,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetRenderbufferParameteriv(int target, int pname, long params) {
-        GLES32.nglGetRenderbufferParameteriv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -468,7 +468,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetRenderbufferParameteri(int target, int pname) {
-        return GLES32.glGetRenderbufferParameteri(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -483,7 +483,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglDeleteFramebuffers(int n, long framebuffers) {
-        GLES32.nglDeleteFramebuffers(n, framebuffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -498,7 +498,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGenFramebuffers(int n, long framebuffers) {
-        GLES32.nglGenFramebuffers(n, framebuffers);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -518,7 +518,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
-        GLES32.glFramebufferTexture1D(target, attachment, textarget, texture, level);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -528,7 +528,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
-        GLES32.glFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -543,7 +543,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
-        GLES32.nglGetFramebufferAttachmentParameteriv(target, attachment, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -553,7 +553,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
-        return GLES32.glGetFramebufferAttachmentParameteri(target, attachment, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -568,7 +568,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglTexParameterIiv(int target, int pname, long params) {
-        GLES32.nglTexParameterIiv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -578,12 +578,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glTexParameterIi(int target, int pname, int param) {
-        GLES32.glTexParameterIi(target, pname, param);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglTexParameterIuiv(int target, int pname, long params) {
-        GLES32.nglTexParameterIuiv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -593,12 +593,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glTexParameterIui(int target, int pname, int param) {
-        GLES32.glTexParameterIui(target, pname, param);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetTexParameterIiv(int target, int pname, long params) {
-        GLES32.nglGetTexParameterIiv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -608,12 +608,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetTexParameterIi(int target, int pname) {
-        return GLES32.glGetTexParameterIi(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetTexParameterIuiv(int target, int pname, long params) {
-        GLES32.nglGetTexParameterIuiv(target, pname, params);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -623,7 +623,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetTexParameterIui(int target, int pname) {
-        return GLES32.glGetTexParameterIui(target, pname);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -633,7 +633,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetBooleani_v(int target, int index, long data) {
-        GLES32.nglGetBooleani_v(target, index, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -643,12 +643,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public boolean glGetBooleani(int target, int index) {
-        return GLES32.glGetBooleani(target, index);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void nglGetIntegeri_v(int target, int index, long data) {
-        GLES32.nglGetIntegeri_v(target, index, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -658,7 +658,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public int glGetIntegeri(int target, int index) {
-        return GLES32.glGetIntegeri(target, index);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -698,7 +698,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode) {
-        GLES32.nglTransformFeedbackVaryings(program, count, varyings, bufferMode);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -713,7 +713,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name) {
-        GLES32.nglGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -738,7 +738,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglDeleteVertexArrays(int n, long arrays) {
-        GLES32.nglDeleteVertexArrays(n, arrays);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -753,7 +753,7 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void nglGenVertexArrays(int n, long arrays) {
-        GLES32.nglGenVertexArrays(n, arrays);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -788,17 +788,17 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glVertexAttribI1iv(int index, int[] v) {
-        GLES32.glVertexAttribI1iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2iv(int index, int[] v) {
-        GLES32.glVertexAttribI2iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3iv(int index, int[] v) {
-        GLES32.glVertexAttribI3iv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -808,17 +808,17 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glVertexAttribI1uiv(int index, int[] v) {
-        GLES32.glVertexAttribI1uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI2uiv(int index, int[] v) {
-        GLES32.glVertexAttribI2uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI3uiv(int index, int[] v) {
-        GLES32.glVertexAttribI3uiv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -828,12 +828,12 @@ public class AndroidGL30 extends AndroidGL21 implements GLI30 {
 
     @Override
     public void glVertexAttribI4sv(int index, short[] v) {
-        GLES32.glVertexAttribI4sv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glVertexAttribI4usv(int index, short[] v) {
-        GLES32.glVertexAttribI4usv(index, v);
+        throw new UnsupportedOperationException();
     }
 
     @Override
