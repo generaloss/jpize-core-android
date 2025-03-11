@@ -23,8 +23,8 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public void glDeleteBuffers(int buffer) {
-        tmp_intArray[0] = buffer;
-        GLES11.glDeleteBuffers(1, tmp_intArray, 0);
+        tmp_int[0] = buffer;
+        GLES11.glDeleteBuffers(1, tmp_int, 0);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public int glGenBuffers() {
-        GLES11.glGenBuffers(1, tmp_intArray, 0);
-        return tmp_intArray[0];
+        GLES11.glGenBuffers(1, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
@@ -220,8 +220,8 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public int glGenQueries() {
-        GLES30.glGenQueries(1, tmp_intArray, 0);
-        return tmp_intArray[0];
+        GLES30.glGenQueries(1, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
@@ -236,8 +236,8 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public void glDeleteQueries(int id) {
-        tmp_intArray[0] = id;
-        GLES30.glDeleteQueries(1, tmp_intArray, 0);
+        tmp_int[0] = id;
+        GLES30.glDeleteQueries(1, tmp_int, 0);
     }
 
     @Override

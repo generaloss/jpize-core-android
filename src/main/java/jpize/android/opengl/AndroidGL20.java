@@ -3,48 +3,47 @@ package jpize.android.opengl;
 import android.opengl.*;
 import jpize.opengl.gl.GLI20;
 import java.nio.*;
-import java.nio.charset.StandardCharsets;
 
 public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glCreateProgram() {
-        return GLES32.glCreateProgram();
+        return GLES20.glCreateProgram();
     }
 
     @Override
     public void glDeleteProgram(int program) {
-        GLES32.glDeleteProgram(program);
+        GLES20.glDeleteProgram(program);
     }
 
     @Override
     public boolean glIsProgram(int program) {
-        return GLES32.glIsProgram(program);
+        return GLES20.glIsProgram(program);
     }
 
     @Override
     public int glCreateShader(int type) {
-        return GLES32.glCreateShader(type);
+        return GLES20.glCreateShader(type);
     }
 
     @Override
     public void glDeleteShader(int shader) {
-        GLES32.glDeleteShader(shader);
+        GLES20.glDeleteShader(shader);
     }
 
     @Override
     public boolean glIsShader(int shader) {
-        return GLES32.glIsShader(shader);
+        return GLES20.glIsShader(shader);
     }
 
     @Override
     public void glAttachShader(int program, int shader) {
-        GLES32.glAttachShader(program, shader);
+        GLES20.glAttachShader(program, shader);
     }
 
     @Override
     public void glDetachShader(int program, int shader) {
-        GLES32.glDetachShader(program, shader);
+        GLES20.glDetachShader(program, shader);
     }
 
     @Override
@@ -57,72 +56,72 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
         final StringBuilder string = new StringBuilder();
         for(CharSequence charSequence: strings)
             string.append(charSequence);
-        GLES32.glShaderSource(shader, string.toString());
+        GLES20.glShaderSource(shader, string.toString());
     }
 
     @Override
     public void glShaderSource(int shader, CharSequence string) {
-        GLES32.glShaderSource(shader, string.toString());
+        GLES20.glShaderSource(shader, string.toString());
     }
 
     @Override
     public void glCompileShader(int shader) {
-        GLES32.glCompileShader(shader);
+        GLES20.glCompileShader(shader);
     }
 
     @Override
     public void glLinkProgram(int program) {
-        GLES32.glLinkProgram(program);
+        GLES20.glLinkProgram(program);
     }
 
     @Override
     public void glUseProgram(int program) {
-        GLES32.glUseProgram(program);
+        GLES20.glUseProgram(program);
     }
 
     @Override
     public void glValidateProgram(int program) {
-        GLES32.glValidateProgram(program);
+        GLES20.glValidateProgram(program);
     }
 
     @Override
     public void glUniform1f(int location, float v0) {
-        GLES32.glUniform1f(location, v0);
+        GLES20.glUniform1f(location, v0);
     }
 
     @Override
     public void glUniform2f(int location, float v0, float v1) {
-        GLES32.glUniform2f(location, v0, v1);
+        GLES20.glUniform2f(location, v0, v1);
     }
 
     @Override
     public void glUniform3f(int location, float v0, float v1, float v2) {
-        GLES32.glUniform3f(location, v0, v1, v2);
+        GLES20.glUniform3f(location, v0, v1, v2);
     }
 
     @Override
     public void glUniform4f(int location, float v0, float v1, float v2, float v3) {
-        GLES32.glUniform4f(location, v0, v1, v2, v3);
+        GLES20.glUniform4f(location, v0, v1, v2, v3);
     }
 
     @Override
     public void glUniform1i(int location, int v0) {
-        GLES32.glUniform1i(location, v0);
+        GLES20.glUniform1i(location, v0);
     }
 
     @Override
     public void glUniform2i(int location, int v0, int v1) {
-        GLES32.glUniform2i(location, v0, v1);
+        GLES20.glUniform2i(location, v0, v1);
     }
 
     @Override
     public void glUniform3i(int location, int v0, int v1, int v2) {
-        GLES32.glUniform3i(location, v0, v1, v2);
+        GLES20.glUniform3i(location, v0, v1, v2);
     }
 
     @Override
     public void glUniform4i(int location, int v0, int v1, int v2, int v3) {
-        GLES32.glUniform4i(location, v0, v1, v2, v3);
+        GLES20.glUniform4i(location, v0, v1, v2, v3);
     }
 
     @Override
@@ -132,7 +131,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform1fv(int location, FloatBuffer value) {
-        GLES32.glUniform1fv(location, value.limit(), value);
+        GLES20.glUniform1fv(location, value.limit(), value);
     }
 
     @Override
@@ -142,7 +141,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform2fv(int location, FloatBuffer value) {
-        GLES32.glUniform2fv(location, value.limit(), value);
+        GLES20.glUniform2fv(location, value.limit(), value);
     }
 
     @Override
@@ -152,7 +151,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform3fv(int location, FloatBuffer value) {
-        GLES32.glUniform3fv(location, value.limit(), value);
+        GLES20.glUniform3fv(location, value.limit(), value);
     }
 
     @Override
@@ -162,7 +161,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform4fv(int location, FloatBuffer value) {
-        GLES32.glUniform4fv(location, value.limit(), value);
+        GLES20.glUniform4fv(location, value.limit(), value);
     }
 
     @Override
@@ -172,7 +171,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform1iv(int location, IntBuffer value) {
-        GLES32.glUniform1iv(location, value.limit(), value);
+        GLES20.glUniform1iv(location, value.limit(), value);
     }
 
     @Override
@@ -182,7 +181,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform2iv(int location, IntBuffer value) {
-        GLES32.glUniform2iv(location, value.limit(), value);
+        GLES20.glUniform2iv(location, value.limit(), value);
     }
 
     @Override
@@ -192,7 +191,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform3iv(int location, IntBuffer value) {
-        GLES32.glUniform3iv(location, value.limit(), value);
+        GLES20.glUniform3iv(location, value.limit(), value);
     }
 
     @Override
@@ -202,7 +201,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform4iv(int location, IntBuffer value) {
-        GLES32.glUniform4iv(location, value.limit(), value);
+        GLES20.glUniform4iv(location, value.limit(), value);
     }
 
     @Override
@@ -212,7 +211,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix2fv(location, value.limit(), transpose, value);
+        GLES20.glUniformMatrix2fv(location, value.limit(), transpose, value);
     }
 
     @Override
@@ -222,7 +221,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix3fv(location, value.limit(), transpose, value);
+        GLES20.glUniformMatrix3fv(location, value.limit(), transpose, value);
     }
 
     @Override
@@ -232,7 +231,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
-        GLES32.glUniformMatrix4fv(location, value.limit(), transpose, value);
+        GLES20.glUniformMatrix4fv(location, value.limit(), transpose, value);
     }
 
     @Override
@@ -242,7 +241,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetShaderiv(int shader, int pname, IntBuffer params) {
-        GLES32.glGetShaderiv(shader, pname, params);
+        GLES20.glGetShaderiv(shader, pname, params);
     }
 
     @Override
@@ -257,7 +256,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetProgramiv(int program, int pname, IntBuffer params) {
-        GLES32.glGetProgramiv(program, pname, params);
+        GLES20.glGetProgramiv(program, pname, params);
     }
 
     @Override
@@ -272,17 +271,13 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
-        final int maxLength = length.get();
-        String log = GLES32.glGetShaderInfoLog(shader);
-        if(log.length() > maxLength)
-            log = log.substring(0, maxLength);
-        infoLog.put(log.getBytes());
-        infoLog.position(0);
+        final String infoLogString = GLES20.glGetShaderInfoLog(shader);
+        setBufferString(infoLogString, length.get(), infoLog);
     }
 
     @Override
     public String glGetShaderInfoLog(int shader, int maxLength) {
-        final String log = GLES32.glGetShaderInfoLog(shader);
+        final String log = GLES20.glGetShaderInfoLog(shader);
         if(log.length() > maxLength)
             return log.substring(0, maxLength);
         return log;
@@ -290,7 +285,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public String glGetShaderInfoLog(int shader) {
-        return GLES32.glGetShaderInfoLog(shader);
+        return GLES20.glGetShaderInfoLog(shader);
     }
 
     @Override
@@ -300,17 +295,13 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
-        final int maxLength = length.get();
-        String log = GLES32.glGetProgramInfoLog(program);
-        if(log.length() > maxLength)
-            log = log.substring(0, maxLength);
-        infoLog.put(log.getBytes());
-        infoLog.position(0);
+        final String infoLogString = GLES20.glGetProgramInfoLog(program);
+        setBufferString(infoLogString, length.get(), infoLog);
     }
 
     @Override
     public String glGetProgramInfoLog(int program, int maxLength) {
-        final String log = GLES32.glGetProgramInfoLog(program);
+        final String log = GLES20.glGetProgramInfoLog(program);
         if(log.length() > maxLength)
             return log.substring(0, maxLength);
         return log;
@@ -318,7 +309,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public String glGetProgramInfoLog(int program) {
-        return GLES32.glGetProgramInfoLog(program);
+        return GLES20.glGetProgramInfoLog(program);
     }
 
     @Override
@@ -328,7 +319,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
-        GLES32.glGetAttachedShaders(program, count.limit(), count, shaders);
+        GLES20.glGetAttachedShaders(program, count.limit(), count, shaders);
     }
 
     @Override
@@ -338,13 +329,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetUniformLocation(int program, ByteBuffer name) {
-        final String stringName = StandardCharsets.UTF_8.decode(name).toString();
-        return GLES32.glGetUniformLocation(program, stringName);
+        return GLES20.glGetUniformLocation(program, createString(name));
     }
 
     @Override
     public int glGetUniformLocation(int program, CharSequence name) {
-        return GLES32.glGetUniformLocation(program, name.toString());
+        return GLES20.glGetUniformLocation(program, name.toString());
     }
 
     @Override
@@ -354,17 +344,17 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-        GLES32.glGetActiveUniform(program, index, length, size, type, name);
+        GLES20.glGetActiveUniform(program, index, length.limit(), createArray(length), 0, createArray(size), 0, createArray(type), 0, createArray(name), 0);
     }
 
     @Override
     public String glGetActiveUniform(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
-        return GLES32.glGetActiveUniform(program, index, maxLength, size, type);
+        return GLES20.glGetActiveUniform(program, index, size, type);
     }
 
     @Override
     public String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
-        return GLES32.glGetActiveUniform(program, index, size, type);
+        return GLES20.glGetActiveUniform(program, index, size, type);
     }
 
     @Override
@@ -374,7 +364,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetUniformfv(int program, int location, FloatBuffer params) {
-        GLES32.glGetUniformfv(program, location, params);
+        GLES20.glGetUniformfv(program, location, params);
     }
 
     @Override
@@ -389,7 +379,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetUniformiv(int program, int location, IntBuffer params) {
-        GLES32.glGetUniformiv(program, location, params);
+        GLES20.glGetUniformiv(program, location, params);
     }
 
     @Override
@@ -404,22 +394,26 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
-        GLES32.glGetShaderSource(shader, length, source);
+        final String sourceString = GLES20.glGetShaderSource(shader);
+        setBufferString(sourceString, length.get(), source);
     }
 
     @Override
     public String glGetShaderSource(int shader, int maxLength) {
-        return GLES32.glGetShaderSource(shader, maxLength);
+        final String log = GLES20.glGetShaderSource(shader);
+        if(log.length() > maxLength)
+            return log.substring(0, maxLength);
+        return log;
     }
 
     @Override
     public String glGetShaderSource(int shader) {
-        return GLES32.glGetShaderSource(shader);
+        return GLES20.glGetShaderSource(shader);
     }
 
     @Override
     public void glVertexAttrib1f(int index, float v0) {
-        GLES32.glVertexAttrib1f(index, v0);
+        GLES20.glVertexAttrib1f(index, v0);
     }
 
     @Override
@@ -434,7 +428,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib2f(int index, float v0, float v1) {
-        GLES32.glVertexAttrib2f(index, v0, v1);
+        GLES20.glVertexAttrib2f(index, v0, v1);
     }
 
     @Override
@@ -449,7 +443,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib3f(int index, float v0, float v1, float v2) {
-        GLES32.glVertexAttrib3f(index, v0, v1, v2);
+        GLES20.glVertexAttrib3f(index, v0, v1, v2);
     }
 
     @Override
@@ -464,7 +458,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
-        GLES32.glVertexAttrib4f(index, v0, v1, v2, v3);
+        GLES20.glVertexAttrib4f(index, v0, v1, v2, v3);
     }
 
     @Override
@@ -489,7 +483,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib1fv(int index, FloatBuffer v) {
-        GLES32.glVertexAttrib1fv(index, v);
+        GLES20.glVertexAttrib1fv(index, v);
     }
 
     @Override
@@ -519,7 +513,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib2fv(int index, FloatBuffer v) {
-        GLES32.glVertexAttrib2fv(index, v);
+        GLES20.glVertexAttrib2fv(index, v);
     }
 
     @Override
@@ -549,7 +543,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib3fv(int index, FloatBuffer v) {
-        GLES32.glVertexAttrib3fv(index, v);
+        GLES20.glVertexAttrib3fv(index, v);
     }
 
     @Override
@@ -579,7 +573,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib4fv(int index, FloatBuffer v) {
-        GLES32.glVertexAttrib4fv(index, v);
+        GLES20.glVertexAttrib4fv(index, v);
     }
 
     @Override
@@ -719,37 +713,37 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-        GLES32.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        GLES20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-        GLES32.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        GLES20.glVertexAttribPointer(index, size, type, normalized, stride, (int) pointer);
     }
 
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-        GLES32.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        GLES20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-        GLES32.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        GLES20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     @Override
     public void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-        GLES32.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+        GLES20.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
     @Override
     public void glEnableVertexAttribArray(int index) {
-        GLES32.glEnableVertexAttribArray(index);
+        GLES20.glEnableVertexAttribArray(index);
     }
 
     @Override
     public void glDisableVertexAttribArray(int index) {
-        GLES32.glDisableVertexAttribArray(index);
+        GLES20.glDisableVertexAttribArray(index);
     }
 
     @Override
@@ -759,12 +753,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glBindAttribLocation(int program, int index, ByteBuffer name) {
-        GLES32.glBindAttribLocation(program, index, name);
+        GLES20.glBindAttribLocation(program, index, createString(name));
     }
 
     @Override
     public void glBindAttribLocation(int program, int index, CharSequence name) {
-        GLES32.glBindAttribLocation(program, index, name);
+        GLES20.glBindAttribLocation(program, index, name.toString());
     }
 
     @Override
@@ -774,17 +768,17 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
-        GLES32.glGetActiveAttrib(program, index, length, size, type, name);
+        GLES20.glGetActiveAttrib(program, index, length.limit(), createArray(length), 0, createArray(size), 0, createArray(type), 0, createArray(name), 0);
     }
 
     @Override
     public String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
-        return GLES32.glGetActiveAttrib(program, index, maxLength, size, type);
+        return GLES20.glGetActiveAttrib(program, index, size, type);
     }
 
     @Override
     public String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
-        return GLES32.glGetActiveAttrib(program, index, size, type);
+        return GLES20.glGetActiveAttrib(program, index, size, type);
     }
 
     @Override
@@ -794,12 +788,12 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetAttribLocation(int program, ByteBuffer name) {
-        return GLES32.glGetAttribLocation(program, name);
+        return GLES20.glGetAttribLocation(program, createString(name));
     }
 
     @Override
     public int glGetAttribLocation(int program, CharSequence name) {
-        return GLES32.glGetAttribLocation(program, name);
+        return GLES20.glGetAttribLocation(program, name.toString());
     }
 
     @Override
@@ -809,7 +803,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
-        GLES32.glGetVertexAttribiv(index, pname, params);
+        GLES20.glGetVertexAttribiv(index, pname, params);
     }
 
     @Override
@@ -824,7 +818,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
-        GLES32.glGetVertexAttribfv(index, pname, params);
+        GLES20.glGetVertexAttribfv(index, pname, params);
     }
 
     @Override
@@ -854,137 +848,144 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glDrawBuffers(IntBuffer bufs) {
-        GLES32.glDrawBuffers(bufs);
+        GLES30.glDrawBuffers(bufs.limit(), bufs);
     }
 
     @Override
     public void glDrawBuffers(int buf) {
-        GLES32.glDrawBuffers(buf);
+        tmp_int[0] = buf;
+        GLES30.glDrawBuffers(1, tmp_int, 0);
     }
 
     @Override
     public void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
-        GLES32.glBlendEquationSeparate(modeRGB, modeAlpha);
+        GLES20.glBlendEquationSeparate(modeRGB, modeAlpha);
     }
 
     @Override
     public void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
-        GLES32.glStencilOpSeparate(face, sfail, dpfail, dppass);
+        GLES20.glStencilOpSeparate(face, sfail, dpfail, dppass);
     }
 
     @Override
     public void glStencilFuncSeparate(int face, int func, int ref, int mask) {
-        GLES32.glStencilFuncSeparate(face, func, ref, mask);
+        GLES20.glStencilFuncSeparate(face, func, ref, mask);
     }
 
     @Override
     public void glStencilMaskSeparate(int face, int mask) {
-        GLES32.glStencilMaskSeparate(face, mask);
+        GLES20.glStencilMaskSeparate(face, mask);
     }
 
     @Override
     public void glUniform1fv(int location, float[] value) {
-        GLES32.glUniform1fv(location, value);
+        GLES20.glUniform1fv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform2fv(int location, float[] value) {
-        GLES32.glUniform2fv(location, value);
+        GLES20.glUniform2fv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform3fv(int location, float[] value) {
-        GLES32.glUniform3fv(location, value);
+        GLES20.glUniform3fv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform4fv(int location, float[] value) {
-        GLES32.glUniform4fv(location, value);
+        GLES20.glUniform4fv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform1iv(int location, int[] value) {
-        GLES32.glUniform1iv(location, value);
+        GLES20.glUniform1iv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform2iv(int location, int[] value) {
-        GLES32.glUniform2iv(location, value);
+        GLES20.glUniform2iv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform3iv(int location, int[] value) {
-        GLES32.glUniform3iv(location, value);
+        GLES20.glUniform3iv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform4iv(int location, int[] value) {
-        GLES32.glUniform4iv(location, value);
+        GLES20.glUniform4iv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
-        GLES32.glUniformMatrix2fv(location, transpose, value);
+        GLES20.glUniformMatrix2fv(location, value.length, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
-        GLES32.glUniformMatrix3fv(location, transpose, value);
+        GLES20.glUniformMatrix3fv(location, value.length, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
-        GLES32.glUniformMatrix4fv(location, transpose, value);
+        GLES20.glUniformMatrix4fv(location, value.length, transpose, value, 0);
     }
 
     @Override
     public void glGetShaderiv(int shader, int pname, int[] params) {
-        GLES32.glGetShaderiv(shader, pname, params);
+        GLES20.glGetShaderiv(shader, pname, params, 0);
     }
 
     @Override
     public void glGetProgramiv(int program, int pname, int[] params) {
-        GLES32.glGetProgramiv(program, pname, params);
+        GLES20.glGetProgramiv(program, pname, params, 0);
     }
 
     @Override
     public void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
-        GLES32.glGetShaderInfoLog(shader, length, infoLog);
+        final String infoLogString = GLES20.glGetShaderInfoLog(shader);
+        setBufferString(infoLogString, length[0], infoLog);
     }
 
     @Override
     public void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
-        GLES32.glGetProgramInfoLog(program, length, infoLog);
+        final String infoLogString = GLES20.glGetProgramInfoLog(program);
+        setBufferString(infoLogString, length[0], infoLog);
     }
 
     @Override
     public void glGetAttachedShaders(int program, int[] count, int[] shaders) {
-        GLES32.glGetAttachedShaders(program, count, shaders);
+        GLES20.glGetAttachedShaders(program, count.length, count, 0, shaders, 0);
     }
 
     @Override
     public void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-        GLES32.glGetActiveUniform(program, index, length, size, type, name);
+        final byte[] nameBytes = new byte[name.limit()];
+        GLES20.glGetActiveUniform(program, index, length.length, length, 0, size, 0, type, 0, nameBytes, 0);
+        name.put(nameBytes);
+        name.position(0);
     }
 
     @Override
     public void glGetUniformfv(int program, int location, float[] params) {
-        GLES32.glGetUniformfv(program, location, params);
+        GLES20.glGetUniformfv(program, location, params, 0);
     }
 
     @Override
     public void glGetUniformiv(int program, int location, int[] params) {
-        GLES32.glGetUniformiv(program, location, params);
+        GLES20.glGetUniformiv(program, location, params, 0);
     }
 
     @Override
     public void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
-        GLES32.glGetShaderSource(shader, length, source);
+        final String sourceString = GLES20.glGetShaderSource(shader);
+        setBufferString(sourceString, length[0], source);
     }
 
     @Override
     public void glVertexAttrib1fv(int index, float[] v) {
-        GLES32.glVertexAttrib1fv(index, v);
+        GLES20.glVertexAttrib1fv(index, v, 0);
     }
 
     @Override
@@ -999,7 +1000,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib2fv(int index, float[] v) {
-        GLES32.glVertexAttrib2fv(index, v);
+        GLES20.glVertexAttrib2fv(index, v, 0);
     }
 
     @Override
@@ -1014,7 +1015,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib3fv(int index, float[] v) {
-        GLES32.glVertexAttrib3fv(index, v);
+        GLES20.glVertexAttrib3fv(index, v, 0);
     }
 
     @Override
@@ -1029,7 +1030,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glVertexAttrib4fv(int index, float[] v) {
-        GLES32.glVertexAttrib4fv(index, v);
+        GLES20.glVertexAttrib4fv(index, v, 0);
     }
 
     @Override
@@ -1079,17 +1080,20 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
-        GLES32.glGetActiveAttrib(program, index, length, size, type, name);
+        final byte[] nameBytes = new byte[name.limit()];
+        GLES20.glGetActiveAttrib(program, index, length.length, length, 0, size, 0, type, 0, nameBytes, 0);
+        name.put(nameBytes);
+        name.position(0);
     }
 
     @Override
     public void glGetVertexAttribiv(int index, int pname, int[] params) {
-        GLES32.glGetVertexAttribiv(index, pname, params);
+        GLES20.glGetVertexAttribiv(index, pname, params, 0);
     }
 
     @Override
     public void glGetVertexAttribfv(int index, int pname, float[] params) {
-        GLES32.glGetVertexAttribfv(index, pname, params);
+        GLES20.glGetVertexAttribfv(index, pname, params, 0);
     }
 
     @Override
@@ -1099,7 +1103,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glDrawBuffers(int[] bufs) {
-        GLES32.glDrawBuffers(bufs);
+        GLES30.glDrawBuffers(bufs.length, bufs, 0);
     }
 
 }

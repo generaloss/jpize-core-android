@@ -3,13 +3,13 @@ package jpize.android.opengl;
 import android.opengl.*;
 import jpize.opengl.gl.GLI11;
 import java.nio.*;
+import java.nio.charset.Charset;
 
 public class AndroidGL11 implements GLI11 {
 
-    // GLES32\..*
-    // throw new UnsupportedOperationException();
+    // '(return )?GLES32\..*' => 'throw new UnsupportedOperationException();'
 
-    protected static final int[] tmp_intArray = new int[1];
+    protected static final int[] tmp_int = new int[1];
 
     protected static ShortBuffer createShortBuffer(int size) {
         return ByteBuffer.allocateDirect(size * Short.BYTES)
@@ -31,6 +31,8 @@ public class AndroidGL11 implements GLI11 {
 
 
     protected static ShortBuffer createBuffer(short[] array) {
+        if(array == null)
+            return null;
         return ByteBuffer.allocateDirect(array.length * Short.BYTES)
             .order(ByteOrder.nativeOrder())
             .asShortBuffer()
@@ -39,6 +41,8 @@ public class AndroidGL11 implements GLI11 {
     }
 
     protected static IntBuffer createBuffer(int[] array) {
+        if(array == null)
+            return null;
         return ByteBuffer.allocateDirect(array.length * Integer.BYTES)
             .order(ByteOrder.nativeOrder())
             .asIntBuffer()
@@ -47,6 +51,8 @@ public class AndroidGL11 implements GLI11 {
     }
 
     protected static LongBuffer createBuffer(long[] array) {
+        if(array == null)
+            return null;
         return ByteBuffer.allocateDirect(array.length * Long.BYTES)
                 .order(ByteOrder.nativeOrder())
                 .asLongBuffer()
@@ -55,6 +61,8 @@ public class AndroidGL11 implements GLI11 {
     }
 
     protected static FloatBuffer createBuffer(float[] array) {
+        if(array == null)
+            return null;
         return ByteBuffer.allocateDirect(array.length * Float.BYTES)
             .order(ByteOrder.nativeOrder())
             .asFloatBuffer()
@@ -63,11 +71,53 @@ public class AndroidGL11 implements GLI11 {
     }
 
     protected static DoubleBuffer createBuffer(double[] array) {
+        if(array == null)
+            return null;
         return ByteBuffer.allocateDirect(array.length * Double.BYTES)
             .order(ByteOrder.nativeOrder())
             .asDoubleBuffer()
             .put(array)
             .position(0);
+    }
+
+    protected static byte[] createArray(ByteBuffer buffer) {
+        if(buffer == null)
+            return null;
+        final byte[] array = new byte[buffer.limit()];
+        buffer.get(array);
+        buffer.position(0);
+        return array;
+    }
+
+    protected static int[] createArray(IntBuffer buffer) {
+        if(buffer == null)
+            return null;
+        final int[] array = new int[buffer.limit()];
+        buffer.get(array);
+        buffer.position(0);
+        return array;
+    }
+
+    protected String createString(ByteBuffer buffer) {
+        if(buffer == null)
+            return null;
+        return Charset.defaultCharset().decode(buffer).toString();
+    }
+
+    protected void setBufferString(String string, int maxLength, ByteBuffer buffer) {
+        if(string.length() > maxLength)
+            string = string.substring(0, maxLength);
+        buffer.put(string.getBytes());
+        buffer.position(0);
+    }
+
+    protected String[] createStringArray(CharSequence... charSequences) {
+        if(charSequences == null)
+            return null;
+        final String[] array = new String[charSequences.length];
+        for(int i = 0; i < array.length; i++)
+            array[i] = charSequences[i].toString();
+        return array;
     }
 
 
@@ -788,8 +838,8 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public int glGenTextures() {
-        GLES10.glGenTextures(1, tmp_intArray, 0);
-        return tmp_intArray[0];
+        GLES10.glGenTextures(1, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
@@ -804,8 +854,8 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glDeleteTextures(int texture) {
-        tmp_intArray[0] = texture;
-        GLES10.glDeleteTextures(1, tmp_intArray, 0);
+        tmp_int[0] = texture;
+        GLES10.glDeleteTextures(1, tmp_int, 0);
     }
 
     @Override
