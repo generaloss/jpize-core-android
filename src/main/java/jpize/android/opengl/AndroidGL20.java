@@ -141,7 +141,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform2fv(int location, FloatBuffer value) {
-        GLES20.glUniform2fv(location, value.limit(), value);
+        GLES20.glUniform2fv(location, value.limit() / 2, value);
     }
 
     @Override
@@ -151,7 +151,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform3fv(int location, FloatBuffer value) {
-        GLES20.glUniform3fv(location, value.limit(), value);
+        GLES20.glUniform3fv(location, value.limit() / 3, value);
     }
 
     @Override
@@ -161,7 +161,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform4fv(int location, FloatBuffer value) {
-        GLES20.glUniform4fv(location, value.limit(), value);
+        GLES20.glUniform4fv(location, value.limit() / 4, value);
     }
 
     @Override
@@ -181,7 +181,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform2iv(int location, IntBuffer value) {
-        GLES20.glUniform2iv(location, value.limit(), value);
+        GLES20.glUniform2iv(location, value.limit() / 2, value);
     }
 
     @Override
@@ -191,7 +191,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform3iv(int location, IntBuffer value) {
-        GLES20.glUniform3iv(location, value.limit(), value);
+        GLES20.glUniform3iv(location, value.limit() / 3, value);
     }
 
     @Override
@@ -201,7 +201,7 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform4iv(int location, IntBuffer value) {
-        GLES20.glUniform4iv(location, value.limit(), value);
+        GLES20.glUniform4iv(location, value.limit() / 4, value);
     }
 
     @Override
@@ -211,7 +211,10 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, FloatBuffer value) {
-        GLES20.glUniformMatrix2fv(location, value.limit(), transpose, value);
+        if(value.limit() % 4 != 0)
+            throw new IllegalArgumentException("FloatBuffer size must be a multiple of 4 for mat2");
+
+        GLES20.glUniformMatrix2fv(location, value.limit() / 4, transpose, value);
     }
 
     @Override
@@ -221,7 +224,10 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, FloatBuffer value) {
-        GLES20.glUniformMatrix3fv(location, value.limit(), transpose, value);
+        if(value.limit() % 4 != 0)
+            throw new IllegalArgumentException("FloatBuffer size must be a multiple of 9 for mat3");
+
+        GLES20.glUniformMatrix3fv(location, value.limit() / 9, transpose, value);
     }
 
     @Override
@@ -231,7 +237,10 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, FloatBuffer value) {
-        GLES20.glUniformMatrix4fv(location, value.limit(), transpose, value);
+        if(value.limit() % 4 != 0)
+            throw new IllegalArgumentException("FloatBuffer size must be a multiple of 16 for mat4");
+
+        GLES20.glUniformMatrix4fv(location, value.limit() / 16, transpose, value);
     }
 
     @Override
@@ -881,57 +890,66 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform1fv(int location, float[] value) {
-        GLES20.glUniform1fv(location, 1, value, 0);
+        GLES20.glUniform1fv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform2fv(int location, float[] value) {
-        GLES20.glUniform2fv(location, 1, value, 0);
+        GLES20.glUniform2fv(location, value.length / 2, value, 0);
     }
 
     @Override
     public void glUniform3fv(int location, float[] value) {
-        GLES20.glUniform3fv(location, 1, value, 0);
+        GLES20.glUniform3fv(location, value.length / 3, value, 0);
     }
 
     @Override
     public void glUniform4fv(int location, float[] value) {
-        GLES20.glUniform4fv(location, 1, value, 0);
+        GLES20.glUniform4fv(location, value.length / 4, value, 0);
     }
 
     @Override
     public void glUniform1iv(int location, int[] value) {
-        GLES20.glUniform1iv(location, 1, value, 0);
+        GLES20.glUniform1iv(location, value.length, value, 0);
     }
 
     @Override
     public void glUniform2iv(int location, int[] value) {
-        GLES20.glUniform2iv(location, 1, value, 0);
+        GLES20.glUniform2iv(location, value.length / 2, value, 0);
     }
 
     @Override
     public void glUniform3iv(int location, int[] value) {
-        GLES20.glUniform3iv(location, 1, value, 0);
+        GLES20.glUniform3iv(location, value.length / 3, value, 0);
     }
 
     @Override
     public void glUniform4iv(int location, int[] value) {
-        GLES20.glUniform4iv(location, 1, value, 0);
+        GLES20.glUniform4iv(location, value.length / 4, value, 0);
     }
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix2fv(location, 1, transpose, value, 0);
+        if(value.length % 4 != 0)
+            throw new IllegalArgumentException("Float array length must be a multiple of 4 for mat2");
+
+        GLES20.glUniformMatrix2fv(location, value.length / 4, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix3fv(location, 1, transpose, value, 0);
+        if(value.length % 9 != 0)
+            throw new IllegalArgumentException("Float array length must be a multiple of 9 for mat3");
+
+        GLES20.glUniformMatrix3fv(location, value.length / 9, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix4fv(location, 1, transpose, value, 0);
+        if(value.length % 16 != 0)
+            throw new IllegalArgumentException("Float array length must be a multiple of 16 for mat4");
+
+        GLES20.glUniformMatrix4fv(location, value.length / 16, transpose, value, 0);
     }
 
     @Override

@@ -195,7 +195,8 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public int glGetBufferParameteri(int target, int pname) {
-        throw new UnsupportedOperationException();
+        GLES11.glGetBufferParameteriv(target, pname, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
