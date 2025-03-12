@@ -246,7 +246,8 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetShaderi(int shader, int pname) {
-        throw new UnsupportedOperationException();
+        GLES20.glGetShaderiv(shader, pname, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
@@ -261,7 +262,8 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public int glGetProgrami(int program, int pname) {
-        throw new UnsupportedOperationException();
+        GLES20.glGetProgramiv(program, pname, tmp_int, 0);
+        return tmp_int[0];
     }
 
     @Override
@@ -879,57 +881,57 @@ public class AndroidGL20 extends AndroidGL15 implements GLI20 {
 
     @Override
     public void glUniform1fv(int location, float[] value) {
-        GLES20.glUniform1fv(location, value.length, value, 0);
+        GLES20.glUniform1fv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform2fv(int location, float[] value) {
-        GLES20.glUniform2fv(location, value.length, value, 0);
+        GLES20.glUniform2fv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform3fv(int location, float[] value) {
-        GLES20.glUniform3fv(location, value.length, value, 0);
+        GLES20.glUniform3fv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform4fv(int location, float[] value) {
-        GLES20.glUniform4fv(location, value.length, value, 0);
+        GLES20.glUniform4fv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform1iv(int location, int[] value) {
-        GLES20.glUniform1iv(location, value.length, value, 0);
+        GLES20.glUniform1iv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform2iv(int location, int[] value) {
-        GLES20.glUniform2iv(location, value.length, value, 0);
+        GLES20.glUniform2iv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform3iv(int location, int[] value) {
-        GLES20.glUniform3iv(location, value.length, value, 0);
+        GLES20.glUniform3iv(location, 1, value, 0);
     }
 
     @Override
     public void glUniform4iv(int location, int[] value) {
-        GLES20.glUniform4iv(location, value.length, value, 0);
+        GLES20.glUniform4iv(location, 1, value, 0);
     }
 
     @Override
     public void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix2fv(location, value.length, transpose, value, 0);
+        GLES20.glUniformMatrix2fv(location, 1, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix3fv(location, value.length, transpose, value, 0);
+        GLES20.glUniformMatrix3fv(location, 1, transpose, value, 0);
     }
 
     @Override
     public void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
-        GLES20.glUniformMatrix4fv(location, value.length, transpose, value, 0);
+        GLES20.glUniformMatrix4fv(location, 1, transpose, value, 0);
     }
 
     @Override

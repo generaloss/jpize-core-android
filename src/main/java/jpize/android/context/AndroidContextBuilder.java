@@ -1,12 +1,9 @@
 package jpize.android.context;
 
 import android.app.Activity;
-import android.content.Context;
 import jpize.context.Jpize;
 import jpize.opengl.gl.Gl;
-import jpize.opengl.glenum.GlCompareFunc;
 import jpize.opengl.glenum.GlTarget;
-import jpize.opengl.texture.GlBlendFactor;
 
 public class AndroidContextBuilder {
 
@@ -14,30 +11,28 @@ public class AndroidContextBuilder {
         return new AndroidContextBuilder(androidContext);
     }
 
-    static {
-        Jpize.allocator = new AndroidAllocator();
-    }
+    private final Activity activity;
 
-    private final Activity androidContext;
-
-    private AndroidContextBuilder(Activity androidContext) {
-        this.androidContext = androidContext;
+    private AndroidContextBuilder(Activity activity) {
+        this.activity = activity;
     }
 
     public AndroidContext build() {
-        Jpize.contextManager = new AndroidContextManager();
-        final AndroidGLSurfaceView glSurfaceView = new AndroidGLSurfaceView(androidContext);
-        androidContext.setContentView(glSurfaceView);
         // window
-        final AndroidWindow window = new AndroidWindow(androidContext);
+        final AndroidWindow window = new AndroidWindow(activity);
         // context
         final AndroidContext context = new AndroidContext(window);
-        // default blending options, enable cullface
-        Gl.enable(GlTarget.BLEND, GlTarget.CULL_FACE);
-        Gl.blendFunc(GlBlendFactor.SRC_ALPHA, GlBlendFactor.ONE_MINUS_SRC_ALPHA);
-        // opengl left-handled coordinate system options
-        Gl.depthFunc(GlCompareFunc.GEQUAL);
-        Gl.clearDepth(0);
+        // gl view
+        final AndroidGLSurfaceView glSurfaceView = new AndroidGLSurfaceView(activity, context);
+        activity.setContentView(glSurfaceView);
+
+        Jpize.allocator = new AndroidAllocator();
+        Jpize.input = window.getInput();
+        Jpize.callbacks = window.getCallbacks();
+        Jpize.context = context;
+        Jpize.window = window;
+        Jpize.contextManager = new AndroidContextManager();
+
         // multisample
         if(samples > 0)
             Gl.enable(GlTarget.MULTISAMPLE);

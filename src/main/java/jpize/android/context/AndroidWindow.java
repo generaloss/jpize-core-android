@@ -1,9 +1,6 @@
 package jpize.android.context;
 
 import android.app.Activity;
-import android.content.pm.ApplicationInfo;
-import android.opengl.GLSurfaceView;
-import android.view.View;
 import android.view.Window;
 import jpize.context.IWindow;
 import jpize.context.callback.AbstractCallbacks;
@@ -19,10 +16,14 @@ public class AndroidWindow implements IWindow {
 
     private final Activity activity;
     private final Window window;
+    private final AndroidCallbacks callbacks;
+    private final AndroidInput input;
 
     public AndroidWindow(Activity activity) {
         this.activity = activity;
         this.window = activity.getWindow();
+        this.callbacks = new AndroidCallbacks(activity);
+        this.input = new AndroidInput(this);
     }
 
     @Override
@@ -32,12 +33,12 @@ public class AndroidWindow implements IWindow {
 
     @Override
     public AbstractInput getInput() {
-        return null;
+        return input;
     }
 
     @Override
     public AbstractCallbacks getCallbacks() {
-        return null;
+        return callbacks;
     }
 
     @Override

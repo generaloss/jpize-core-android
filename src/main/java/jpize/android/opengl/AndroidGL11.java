@@ -238,7 +238,7 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glClearDepth(double depth) {
-        throw new UnsupportedOperationException();
+        GLES20.glClearDepthf((float) depth);
     }
 
     @Override
