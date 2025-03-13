@@ -39,8 +39,8 @@ public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView
         Gl.enable(GlTarget.BLEND, GlTarget.CULL_FACE);
         Gl.blendFunc(GlBlendFactor.SRC_ALPHA, GlBlendFactor.ONE_MINUS_SRC_ALPHA);
         // opengl left-handled coordinate system options
-        Gl.depthFunc(GlCompareFunc.GEQUAL);
-        Gl.clearDepth(0);
+        // Gl.depthFunc(GlCompareFunc.GEQUAL);
+        // Gl.clearDepth(0);
 
         context.initP();
     }
