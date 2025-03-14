@@ -5,7 +5,6 @@ import android.opengl.GLSurfaceView;
 import jpize.android.opengl.*;
 import jpize.context.Jpize;
 import jpize.opengl.gl.Gl;
-import jpize.opengl.glenum.GlCompareFunc;
 import jpize.opengl.glenum.GlTarget;
 import jpize.opengl.texture.GlBlendFactor;
 
@@ -38,7 +37,7 @@ public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView
         // default blending options, enable cullface
         Gl.enable(GlTarget.BLEND, GlTarget.CULL_FACE);
         Gl.blendFunc(GlBlendFactor.SRC_ALPHA, GlBlendFactor.ONE_MINUS_SRC_ALPHA);
-        // opengl left-handled coordinate system options
+        // // opengl left-handled coordinate system options
         // Gl.depthFunc(GlCompareFunc.GEQUAL);
         // Gl.clearDepth(0);
 
@@ -53,11 +52,6 @@ public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView
     @Override
     public void onDrawFrame(GL10 gl10) {
         context.loopP();
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
     }
 
 }

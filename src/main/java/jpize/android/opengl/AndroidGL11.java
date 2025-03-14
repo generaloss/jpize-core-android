@@ -33,51 +33,56 @@ public class AndroidGL11 implements GLI11 {
     protected static ShortBuffer createBuffer(short[] array) {
         if(array == null)
             return null;
-        return ByteBuffer.allocateDirect(array.length * Short.BYTES)
+        final ShortBuffer buffer = ByteBuffer.allocateDirect(array.length * Short.BYTES)
             .order(ByteOrder.nativeOrder())
             .asShortBuffer()
-            .put(array)
-            .position(0);
+            .put(array);
+        buffer.position(0);
+        return buffer;
     }
 
     protected static IntBuffer createBuffer(int[] array) {
         if(array == null)
             return null;
-        return ByteBuffer.allocateDirect(array.length * Integer.BYTES)
+        final IntBuffer buffer = ByteBuffer.allocateDirect(array.length * Integer.BYTES)
             .order(ByteOrder.nativeOrder())
             .asIntBuffer()
-            .put(array)
-            .position(0);
+            .put(array);
+        buffer.position(0);
+        return buffer;
     }
 
     protected static LongBuffer createBuffer(long[] array) {
         if(array == null)
             return null;
-        return ByteBuffer.allocateDirect(array.length * Long.BYTES)
-                .order(ByteOrder.nativeOrder())
-                .asLongBuffer()
-                .put(array)
-                .position(0);
+        final LongBuffer buffer = ByteBuffer.allocateDirect(array.length * Long.BYTES)
+            .order(ByteOrder.nativeOrder())
+            .asLongBuffer()
+            .put(array);
+        buffer.position(0);
+        return buffer;
     }
 
     protected static FloatBuffer createBuffer(float[] array) {
         if(array == null)
             return null;
-        return ByteBuffer.allocateDirect(array.length * Float.BYTES)
+        final FloatBuffer buffer = ByteBuffer.allocateDirect(array.length * Float.BYTES)
             .order(ByteOrder.nativeOrder())
             .asFloatBuffer()
-            .put(array)
-            .position(0);
+            .put(array);
+        buffer.position(0);
+        return buffer;
     }
 
     protected static DoubleBuffer createBuffer(double[] array) {
         if(array == null)
             return null;
-        return ByteBuffer.allocateDirect(array.length * Double.BYTES)
+        final DoubleBuffer buffer = ByteBuffer.allocateDirect(array.length * Double.BYTES)
             .order(ByteOrder.nativeOrder())
             .asDoubleBuffer()
-            .put(array)
-            .position(0);
+            .put(array);
+        buffer.position(0);
+        return buffer;
     }
 
     protected static byte[] createArray(ByteBuffer buffer) {

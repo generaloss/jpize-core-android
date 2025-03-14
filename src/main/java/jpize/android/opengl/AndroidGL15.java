@@ -65,27 +65,27 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public void glBufferData(int target, ShortBuffer data, int usage) {
-        GLES11.glBufferData(target, data.limit(), data, usage);
+        GLES11.glBufferData(target, data.limit() * Short.BYTES, data, usage);
     }
 
     @Override
     public void glBufferData(int target, IntBuffer data, int usage) {
-        GLES11.glBufferData(target, data.limit(), data, usage);
+        GLES11.glBufferData(target, data.limit() * Integer.BYTES, data, usage);
     }
 
     @Override
     public void glBufferData(int target, LongBuffer data, int usage) {
-        GLES11.glBufferData(target, data.limit(), data, usage);
+        GLES11.glBufferData(target, data.limit() * Long.BYTES, data, usage);
     }
 
     @Override
     public void glBufferData(int target, FloatBuffer data, int usage) {
-        GLES11.glBufferData(target, data.limit(), data, usage);
+        GLES11.glBufferData(target, data.limit() * Float.BYTES, data, usage);
     }
 
     @Override
     public void glBufferData(int target, DoubleBuffer data, int usage) {
-        GLES11.glBufferData(target, data.limit(), data, usage);
+        GLES11.glBufferData(target, data.limit() * Double.BYTES, data, usage);
     }
 
     @Override
@@ -323,27 +323,27 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public void glBufferData(int target, short[] data, int usage) {
-        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
+        GLES11.glBufferData(target, data.length * Short.BYTES, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, int[] data, int usage) {
-        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
+        GLES11.glBufferData(target, data.length * Integer.BYTES, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, long[] data, int usage) {
-        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
+        GLES11.glBufferData(target, data.length * Long.BYTES, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, float[] data, int usage) {
-        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
+        GLES11.glBufferData(target, data.length * Float.BYTES, createBuffer(data), usage);
     }
 
     @Override
     public void glBufferData(int target, double[] data, int usage) {
-        GLES11.glBufferData(target, data.length, createBuffer(data), usage);
+        GLES11.glBufferData(target, data.length * Double.BYTES, createBuffer(data), usage);
     }
 
     @Override
