@@ -3,42 +3,25 @@ package jpize.android.context;
 import android.app.Activity;
 import android.view.Window;
 import jpize.context.IWindow;
-import jpize.context.callback.AbstractCallbacks;
-import jpize.context.input.AbstractInput;
+import jpize.util.Insetsi;
 import jpize.util.math.vector.Vec2f;
 import jpize.util.math.vector.Vec2i;
 import jpize.util.pixmap.PixmapRGBA;
 import jpize.util.res.Resource;
 
-import java.awt.*;
-
 public class AndroidWindow implements IWindow {
 
     private final Activity activity;
     private final Window window;
-    private final AndroidCallbacks callbacks;
-    private final AndroidInput input;
 
     public AndroidWindow(Activity activity) {
         this.activity = activity;
         this.window = activity.getWindow();
-        this.callbacks = new AndroidCallbacks(activity);
-        this.input = new AndroidInput(this);
     }
 
     @Override
     public long getID() {
         return 1L;
-    }
-
-    @Override
-    public AbstractInput getInput() {
-        return input;
-    }
-
-    @Override
-    public AbstractCallbacks getCallbacks() {
-        return callbacks;
     }
 
     @Override
@@ -140,8 +123,8 @@ public class AndroidWindow implements IWindow {
     }
 
     @Override
-    public Insets getFrameSize() {
-        return new Insets(0, 0, 0, 0);
+    public Insetsi getFrameSize() {
+        return new Insetsi(0, 0, 0, 0);
     }
 
     @Override
@@ -184,19 +167,13 @@ public class AndroidWindow implements IWindow {
     }
 
     @Override
-    public void setFullscreen() {
-
-    }
+    public void setFullscreen() { }
 
     @Override
-    public void setWindowed() {
-
-    }
+    public void setWindowed() { }
 
     @Override
-    public void setFullscreen(boolean fullscreen) {
-
-    }
+    public void setFullscreen(boolean fullscreen) { }
 
     @Override
     public boolean isFullscreen() {
@@ -204,9 +181,7 @@ public class AndroidWindow implements IWindow {
     }
 
     @Override
-    public void toggleFullscreen() {
-
-    }
+    public void toggleFullscreen() { }
 
     @Override
     public void dispose() { }

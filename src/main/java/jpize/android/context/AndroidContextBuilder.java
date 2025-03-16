@@ -18,19 +18,17 @@ public class AndroidContextBuilder {
     }
 
     public AndroidContext build() {
-        // window
-        final AndroidWindow window = new AndroidWindow(activity);
         // context
-        final AndroidContext context = new AndroidContext(window);
+        final AndroidContext context = new AndroidContext(activity);
         // gl view
         final AndroidGLSurfaceView glSurfaceView = new AndroidGLSurfaceView(activity, context);
         activity.setContentView(glSurfaceView);
 
-        Jpize.allocator = new AndroidAllocator();
-        Jpize.input = window.getInput();
-        Jpize.callbacks = window.getCallbacks();
         Jpize.context = context;
-        Jpize.window = window;
+        Jpize.input = context.getInput();
+        Jpize.callbacks = context.getCallbacks();
+        Jpize.window = context.getWindow();
+        Jpize.allocator = new AndroidAllocator();
         Jpize.contextManager = new AndroidContextManager();
 
         // multisample
