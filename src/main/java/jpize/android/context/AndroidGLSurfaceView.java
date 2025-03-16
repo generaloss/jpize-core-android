@@ -14,9 +14,9 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView.Renderer {
 
-    private final AndroidContext context;
+    private final JpizeAndroidContext context;
 
-    public AndroidGLSurfaceView(Activity activity, AndroidContext context) {
+    public AndroidGLSurfaceView(Activity activity, JpizeAndroidContext context) {
         super(activity);
         this.context = context;
 

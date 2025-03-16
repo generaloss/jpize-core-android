@@ -1,19 +1,14 @@
-import android.app.Activity;
 import android.os.Bundle;
-import jpize.android.context.AndroidContextBuilder;
+import jpize.android.context.JpizeAndroidActivity;
 import jpize.context.Jpize;
 import jpize.context.JpizeApplication;
 
-public class GLTest extends Activity {
+public class GLTest extends JpizeAndroidActivity {
 
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
-        AndroidContextBuilder.create(this)
-            .build()
-            .setApp(new App());
-        Jpize.run();
+        Jpize.context.setApp(new App());
     }
 
     static private class App extends JpizeApplication {
