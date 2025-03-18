@@ -34,6 +34,7 @@ public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView
         Jpize.GL20 = new AndroidGL20();
         Jpize.GL21 = new AndroidGL21();
         Jpize.GL30 = new AndroidGL30();
+        Jpize.GL31 = new AndroidGL31();
 
         // default blending options, enable cullface
         Gl.enable(GlTarget.BLEND, GlTarget.CULL_FACE);

@@ -10,6 +10,7 @@ public class AndroidGL11 implements GLI11 {
     // '(return )?GLES32\..*' => 'throw new UnsupportedOperationException();'
 
     protected static final int[] tmp_int = new int[1];
+    protected static final int[] tmp_int_arg = new int[1];
 
     protected static ShortBuffer createShortBuffer(int size) {
         return ByteBuffer.allocateDirect(size * Short.BYTES)
@@ -107,6 +108,12 @@ public class AndroidGL11 implements GLI11 {
         if(buffer == null)
             return null;
         return Charset.defaultCharset().decode(buffer).toString();
+    }
+
+    protected String createString(byte[] buffer) {
+        if(buffer == null)
+            return null;
+        return new String(buffer);
     }
 
     protected void setBufferString(String string, int maxLength, ByteBuffer buffer) {

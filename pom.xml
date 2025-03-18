@@ -6,7 +6,7 @@
 
     <groupId>io.github.generaloss</groupId>
     <artifactId>jpize-core-android</artifactId>
-    <version>25.3.2-SNAPSHOT-2.1</version>
+    <version>25.3.2-SNAPSHOT-2.12</version>
     <name>jpize-core-android</name>
 
     <description>OpenGL Graphics Library Android Backend</description>
