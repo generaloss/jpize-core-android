@@ -2,6 +2,8 @@ package jpize.android.opengl;
 
 import android.opengl.*;
 import jpize.opengl.gl.GLI11;
+import jpize.opengl.type.GlType;
+
 import java.nio.*;
 import java.nio.charset.Charset;
 
@@ -11,6 +13,8 @@ public class AndroidGL11 implements GLI11 {
 
     protected static final int[] tmp_int = new int[1];
     protected static final int[] tmp_int_arg = new int[1];
+    protected static final long[] tmp_long = new long[1];
+    protected static final float[] tmp_float = new float[1];
 
     protected static ShortBuffer createShortBuffer(int size) {
         return ByteBuffer.allocateDirect(size * Short.BYTES)
@@ -28,6 +32,10 @@ public class AndroidGL11 implements GLI11 {
         return ByteBuffer.allocateDirect(size * Float.BYTES)
             .order(ByteOrder.nativeOrder())
             .asFloatBuffer();
+    }
+
+    protected static int bufferCount(Buffer buffer, int type) {
+        return (buffer.limit() / GlType.byValue(type).size);
     }
 
 
