@@ -7,11 +7,6 @@ import java.nio.*;
 public class AndroidGL13 extends AndroidGL12 implements GLI13 {
 
     @Override
-    public void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
         GLES30.glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, (int) data);
     }
@@ -19,11 +14,6 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     @Override
     public void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
         GLES30.glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data.limit(), data);
-    }
-
-    @Override
-    public void nglCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -37,22 +27,12 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
         throw new UnsupportedOperationException();
     }
 
@@ -67,11 +47,6 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
         throw new UnsupportedOperationException(); // args
     }
@@ -82,22 +57,12 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetCompressedTexImage(int target, int level, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -147,17 +112,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord1fv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord1fv(int texture, FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord1sv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -167,17 +122,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord1iv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord1iv(int texture, IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord1dv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -207,17 +152,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord2fv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord2fv(int texture, FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord2sv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -227,17 +162,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord2iv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord2iv(int texture, IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord2dv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -267,17 +192,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord3fv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord3fv(int texture, FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord3sv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -287,17 +202,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord3iv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord3iv(int texture, IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord3dv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -327,17 +232,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord4fv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord4fv(int texture, FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord4sv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -347,17 +242,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultiTexCoord4iv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiTexCoord4iv(int texture, IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiTexCoord4dv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -367,17 +252,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglLoadTransposeMatrixf(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glLoadTransposeMatrixf(FloatBuffer m) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglLoadTransposeMatrixd(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -387,17 +262,7 @@ public class AndroidGL13 extends AndroidGL12 implements GLI13 {
     }
 
     @Override
-    public void nglMultTransposeMatrixf(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultTransposeMatrixf(FloatBuffer m) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultTransposeMatrixd(long var0) {
         throw new UnsupportedOperationException();
     }
 

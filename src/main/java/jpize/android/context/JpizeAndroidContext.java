@@ -35,21 +35,4 @@ public class JpizeAndroidContext extends Context {
         return input;
     }
 
-
-    public void exitP() {
-        super.exit();
-    }
-
-    public void loopP() {
-        super.loop();
-    }
-
-    public void resizeP(int width, int height) {
-        super.resize(width, height);
-    }
-
-    public void initP() {
-        super.init();
-    }
-
 }

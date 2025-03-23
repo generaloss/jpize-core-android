@@ -8,53 +8,43 @@ import java.nio.*;
 public class AndroidGL43 extends AndroidGL42 implements GLI43 {
 
     @Override
-    public void nglClearBufferData(int target, int internalformat, int format, int type, long data) {
+    public void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
-        GLES32.glClearBufferData(target, internalformat, format, type, data);
-    }
-
-    @Override
     public void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
-        GLES32.glClearBufferData(target, internalformat, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
-        GLES32.glClearBufferData(target, internalformat, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
-        GLES32.glClearBufferData(target, internalformat, format, type, data);
-    }
-
-    @Override
-    public void nglClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, long data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
-        GLES32.glClearBufferSubData(target, internalformat, offset, size, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
-        GLES32.glClearBufferSubData(target, internalformat, offset, size, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
-        GLES32.glClearBufferSubData(target, internalformat, offset, size, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
-        GLES32.glClearBufferSubData(target, internalformat, offset, size, format, type, data);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -73,58 +63,36 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-        GLES32.glDebugMessageControl(source, type, severity, ids, enabled);
+        GLES32.glDebugMessageControl(source, type, severity, ids.limit(), ids, enabled);
     }
 
     @Override
     public void glDebugMessageControl(int source, int type, int severity, int id, boolean enabled) {
-        GLES32.glDebugMessageControl(source, type, severity, id, enabled);
-    }
-
-    @Override
-    public void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
-        throw new UnsupportedOperationException();
+        tmp_int[0] = id;
+        GLES32.glDebugMessageControl(source, type, severity, 1, tmp_int, 0, enabled);
     }
 
     @Override
     public void glDebugMessageInsert(int source, int type, int id, int severity, ByteBuffer message) {
-        GLES32.glDebugMessageInsert(source, type, id, severity, message);
+        GLES32.glDebugMessageInsert(source, type, id, severity, message.limit(), createString(message));
     }
 
     @Override
     public void glDebugMessageInsert(int source, int type, int id, int severity, CharSequence message) {
-        GLES32.glDebugMessageInsert(source, type, id, severity, message);
-    }
-
-    @Override
-    public void nglDebugMessageCallback(long callback, long userParam) {
-        throw new UnsupportedOperationException();
+        GLES32.glDebugMessageInsert(source, type, id, severity, message.length(), message.toString());
     }
 
     @Override
     public void glDebugMessageCallback(GLDebugMessageCallback callback, long userParam) {
-        GLES32.glDebugMessageCallback(callback::invoke, userParam);
-    }
-
-    @Override
-    public int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
-        throw new UnsupportedOperationException();
+        GLES32.glDebugMessageCallback((int source, int type, int id, int severity, String message) ->
+            callback.invoke(source, type, id, severity, message.length(), message, 0L)
+        );
     }
 
     @Override
     public int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
         return GLES32.glGetDebugMessageLog(count, sources, types, ids, severities, lengths, messageLog);
-    }
-
-    @Override
-    public void nglPushDebugGroup(int source, int id, int length, long message) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -143,11 +111,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglObjectLabel(int identifier, int name, int length, long label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glObjectLabel(int identifier, int name, ByteBuffer label) {
         GLES32.glObjectLabel(identifier, name, label);
     }
@@ -155,11 +118,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public void glObjectLabel(int identifier, int name, CharSequence label) {
         GLES32.glObjectLabel(identifier, name, label);
-    }
-
-    @Override
-    public void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -178,11 +136,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglObjectPtrLabel(long ptr, int length, long label) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glObjectPtrLabel(long ptr, ByteBuffer label) {
         GLES32.glObjectPtrLabel(ptr, label);
     }
@@ -190,11 +143,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public void glObjectPtrLabel(long ptr, CharSequence label) {
         GLES32.glObjectPtrLabel(ptr, label);
-    }
-
-    @Override
-    public void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -218,11 +166,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglGetFramebufferParameteriv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
         GLES32.glGetFramebufferParameteriv(target, pname, params);
     }
@@ -230,11 +173,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public int glGetFramebufferParameteri(int target, int pname) {
         return GLES32.glGetFramebufferParameteri(target, pname);
-    }
-
-    @Override
-    public void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -268,11 +206,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glInvalidateFramebuffer(int target, IntBuffer attachments) {
         GLES32.glInvalidateFramebuffer(target, attachments);
     }
@@ -283,11 +216,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
         GLES32.glInvalidateSubFramebuffer(target, attachments, x, y, width, height);
     }
@@ -295,11 +223,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
         GLES32.glInvalidateSubFramebuffer(target, attachment, x, y, width, height);
-    }
-
-    @Override
-    public void nglMultiDrawArraysIndirect(int mode, long indirect, int drawcount, int stride) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -318,11 +241,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int drawcount, int stride) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int drawcount, int stride) {
         GLES32.glMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
     }
@@ -338,11 +256,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglGetProgramInterfaceiv(int program, int programInterface, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetProgramInterfaceiv(int program, int programInterface, int pname, IntBuffer params) {
         GLES32.glGetProgramInterfaceiv(program, programInterface, pname, params);
     }
@@ -353,11 +266,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public int nglGetProgramResourceIndex(int program, int programInterface, long name) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int glGetProgramResourceIndex(int program, int programInterface, ByteBuffer name) {
         return GLES32.glGetProgramResourceIndex(program, programInterface, name);
     }
@@ -365,11 +273,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public int glGetProgramResourceIndex(int program, int programInterface, CharSequence name) {
         return GLES32.glGetProgramResourceIndex(program, programInterface, name);
-    }
-
-    @Override
-    public void nglGetProgramResourceName(int program, int programInterface, int index, int bufSize, long length, long name) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -388,18 +291,8 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     }
 
     @Override
-    public void nglGetProgramResourceiv(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
         GLES32.glGetProgramResourceiv(program, programInterface, index, props, length, params);
-    }
-
-    @Override
-    public int nglGetProgramResourceLocation(int program, int programInterface, long name) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -410,11 +303,6 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
     @Override
     public int glGetProgramResourceLocation(int program, int programInterface, CharSequence name) {
         return GLES32.glGetProgramResourceLocation(program, programInterface, name);
-    }
-
-    @Override
-    public int nglGetProgramResourceLocationIndex(int program, int programInterface, long name) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -539,17 +427,19 @@ public class AndroidGL43 extends AndroidGL42 implements GLI43 {
 
     @Override
     public void glGetInternalformati64v(int target, int internalformat, int pname, long[] params) {
-        GLES32.glGetInternalformati64v(target, internalformat, pname, params);
+        final int[] paramsArr = new int[params.length];
+        GLES32.glGetInternalformativ(target, internalformat, pname, params.length, paramsArr, 0);
+        writeToArray(paramsArr, params);
     }
 
     @Override
     public void glInvalidateFramebuffer(int target, int[] attachments) {
-        GLES32.glInvalidateFramebuffer(target, attachments);
+        GLES32.glInvalidateFramebuffer(target, attachments.length, attachments, 0);
     }
 
     @Override
     public void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
-        GLES32.glInvalidateSubFramebuffer(target, attachments, x, y, width, height);
+        GLES32.glInvalidateSubFramebuffer(target, attachments.length, attachments, 0, x, y, width, height);
     }
 
     @Override

@@ -27,27 +27,12 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglFogCoordfv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glFogCoordfv(FloatBuffer coord) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglFogCoorddv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glFogCoorddv(DoubleBuffer coord) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglFogCoordPointer(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -72,17 +57,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglMultiDrawArrays(int mode, long first, long count, int drawcount) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiDrawElements(int mode, long count, int type, long indices, int drawcount) {
         throw new UnsupportedOperationException();
     }
 
@@ -97,17 +72,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglPointParameterfv(int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glPointParameterfv(int pname, FloatBuffer params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglPointParameteriv(int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -157,17 +122,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglSecondaryColor3bv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glSecondaryColor3bv(ByteBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglSecondaryColor3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -177,17 +132,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglSecondaryColor3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glSecondaryColor3iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglSecondaryColor3fv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -197,17 +142,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglSecondaryColor3dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glSecondaryColor3dv(DoubleBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglSecondaryColor3ubv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -217,27 +152,12 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglSecondaryColor3usv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glSecondaryColor3usv(ShortBuffer v) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglSecondaryColor3uiv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glSecondaryColor3uiv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglSecondaryColorPointer(int var0, int var1, int var2, long var3) {
         throw new UnsupportedOperationException();
     }
 
@@ -292,17 +212,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglWindowPos2iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glWindowPos2iv(IntBuffer p) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglWindowPos2sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -312,17 +222,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglWindowPos2fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glWindowPos2fv(FloatBuffer p) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglWindowPos2dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -352,17 +252,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglWindowPos3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glWindowPos3iv(IntBuffer p) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglWindowPos3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -372,17 +262,7 @@ public class AndroidGL14 extends AndroidGL13 implements GLI14 {
     }
 
     @Override
-    public void nglWindowPos3fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glWindowPos3fv(FloatBuffer p) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglWindowPos3dv(long var0) {
         throw new UnsupportedOperationException();
     }
 

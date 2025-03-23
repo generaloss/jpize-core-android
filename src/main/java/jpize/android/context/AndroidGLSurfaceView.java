@@ -43,17 +43,17 @@ public class AndroidGLSurfaceView extends GLSurfaceView implements GLSurfaceView
         Gl.depthFunc(GlCompareFunc.GEQUAL);
         Gl.clearDepth(0);
 
-        context.initP();
+        context.init();
     }
 
     @Override
     public void onSurfaceChanged(GL10 gl10, int width, int height) {
-        context.resizeP(width, height);
+        context.getCallbacks().invokeResize(width, height);
     }
 
     @Override
     public void onDrawFrame(GL10 gl10) {
-        context.loopP();
+        context.loop();
     }
 
 }

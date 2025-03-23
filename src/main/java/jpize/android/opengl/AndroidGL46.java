@@ -9,11 +9,6 @@ import java.nio.IntBuffer;
 public class AndroidGL46 extends AndroidGL45 implements GLI46 {
 
     @Override
-    public void nglMultiDrawArraysIndirectCount(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultiDrawArraysIndirectCount(int mode, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
         throw new UnsupportedOperationException();
     }
@@ -25,11 +20,6 @@ public class AndroidGL46 extends AndroidGL45 implements GLI46 {
 
     @Override
     public void glMultiDrawArraysIndirectCount(int mode, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultiDrawElementsIndirectCount(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
         throw new UnsupportedOperationException();
     }
 
@@ -50,11 +40,6 @@ public class AndroidGL46 extends AndroidGL45 implements GLI46 {
 
     @Override
     public void glPolygonOffsetClamp(float factor, float units, float clamp) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglSpecializeShader(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue) {
         throw new UnsupportedOperationException();
     }
 

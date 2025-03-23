@@ -9,11 +9,6 @@ import java.nio.*;
 public class AndroidGL32 extends AndroidGL31 implements GLI32 {
 
     @Override
-    public void nglGetBufferParameteri64v(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
         GLES30.glGetBufferParameteri64v(target, pname, params);
     }
@@ -22,11 +17,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     public long glGetBufferParameteri64(int target, int pname) {
         GLES30.glGetBufferParameteri64v(target, pname, tmp_long, 0);
         return tmp_long[0];
-    }
-
-    @Override
-    public void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -56,11 +46,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     }
 
     @Override
-    public void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
         throw new UnsupportedOperationException(); // args
     }
@@ -83,11 +68,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     @Override
     public void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
         GLES32.glDrawRangeElementsBaseVertex(mode, start, end, indices.limit(), GLES20.GL_INT, indices, basevertex);
-    }
-
-    @Override
-    public void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -116,11 +96,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     }
 
     @Override
-    public void nglMultiDrawElementsBaseVertex(int mode, long count, int type, long indices, int drawcount, long basevertex) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glProvokingVertex(int mode) {
         throw new UnsupportedOperationException();
     }
@@ -133,11 +108,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     @Override
     public void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
         GLES32.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
-    }
-
-    @Override
-    public void nglGetMultisamplefv(int pname, int index, long val) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -167,18 +137,8 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     }
 
     @Override
-    public boolean nglIsSync(long sync) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public boolean glIsSync(long sync) {
         return GLES30.glIsSync(sync);
-    }
-
-    @Override
-    public void nglDeleteSync(long sync) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -187,28 +147,13 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     }
 
     @Override
-    public int nglClientWaitSync(long sync, int flags, long timeout) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int glClientWaitSync(long sync, int flags, long timeout) {
         return GLES30.glClientWaitSync(sync, flags, timeout);
     }
 
     @Override
-    public void nglWaitSync(long sync, int flags, long timeout) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glWaitSync(long sync, int flags, long timeout) {
         GLES30.glWaitSync(sync, flags, timeout);
-    }
-
-    @Override
-    public void nglGetInteger64v(int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -223,11 +168,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     }
 
     @Override
-    public void nglGetInteger64i_v(int pname, int index, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetInteger64i_v(int pname, int index, LongBuffer params) {
         GLES30.glGetInteger64i_v(pname, index, params);
     }
@@ -236,11 +176,6 @@ public class AndroidGL32 extends AndroidGL31 implements GLI32 {
     public long glGetInteger64i(int pname, int index) {
         GLES30.glGetInteger64i_v(pname, index, tmp_long, 0);
         return tmp_long[0];
-    }
-
-    @Override
-    public void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

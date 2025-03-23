@@ -13,11 +13,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglCreateTransformFeedbacks(int n, long ids) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCreateTransformFeedbacks(IntBuffer ids) {
         GLES32.glGenTransformFeedbacks(ids.limit(), ids);
     }
@@ -39,22 +34,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTransformFeedbackiv(int xfb, int pname, long param) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTransformFeedbackiv(int xfb, int pname, IntBuffer param) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetTransformFeedbacki(int xfb, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTransformFeedbacki_v(int xfb, int pname, int index, long param) {
         throw new UnsupportedOperationException();
     }
 
@@ -69,22 +54,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTransformFeedbacki64_v(int xfb, int pname, int index, long param) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTransformFeedbacki64_v(int xfb, int pname, int index, LongBuffer param) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public long glGetTransformFeedbacki64(int xfb, int pname, int index) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCreateBuffers(int n, long buffers) {
         throw new UnsupportedOperationException();
     }
 
@@ -97,11 +72,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     public int glCreateBuffers() {
         GLES32.glGenBuffers(1, tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglNamedBufferStorage(int buffer, long size, long data, int flags) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -131,11 +101,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public void glNamedBufferStorage(int buffer, DoubleBuffer data, int flags) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglNamedBufferData(int buffer, long size, long data, int usage) {
         throw new UnsupportedOperationException();
     }
 
@@ -175,11 +140,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglNamedBufferSubData(int buffer, long offset, long size, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
         throw new UnsupportedOperationException();
     }
@@ -215,11 +175,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglClearNamedBufferData(int buffer, int internalformat, int format, int type, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glClearNamedBufferData(int buffer, int internalformat, int format, int type, ByteBuffer data) {
         throw new UnsupportedOperationException();
     }
@@ -236,11 +191,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public void glClearNamedBufferData(int buffer, int internalformat, int format, int type, FloatBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, long data) {
         throw new UnsupportedOperationException();
     }
 
@@ -265,11 +215,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public long nglMapNamedBuffer(int buffer, int access) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public ByteBuffer glMapNamedBuffer(int buffer, int access) {
         throw new UnsupportedOperationException();
     }
@@ -281,11 +226,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public ByteBuffer glMapNamedBuffer(int buffer, int access, long length, ByteBuffer old_buffer) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public long nglMapNamedBufferRange(int buffer, long offset, long length, int access) {
         throw new UnsupportedOperationException();
     }
 
@@ -310,22 +250,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetNamedBufferParameteriv(int buffer, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetNamedBufferParameteriv(int buffer, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetNamedBufferParameteri(int buffer, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetNamedBufferParameteri64v(int buffer, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -340,17 +270,7 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetNamedBufferPointerv(int buffer, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public long glGetNamedBufferPointer(int buffer, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetNamedBufferSubData(int buffer, long offset, long size, long data) {
         throw new UnsupportedOperationException();
     }
 
@@ -381,11 +301,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public void glGetNamedBufferSubData(int buffer, long offset, DoubleBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCreateFramebuffers(int n, long framebuffers) {
         throw new UnsupportedOperationException();
     }
 
@@ -426,11 +341,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglNamedFramebufferDrawBuffers(int framebuffer, int n, long bufs) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glNamedFramebufferDrawBuffers(int framebuffer, IntBuffer bufs) {
         throw new UnsupportedOperationException();
     }
@@ -446,22 +356,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglInvalidateNamedFramebufferData(int framebuffer, int numAttachments, long attachments) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glInvalidateNamedFramebufferData(int framebuffer, IntBuffer attachments) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glInvalidateNamedFramebufferData(int framebuffer, int attachment) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglInvalidateNamedFramebufferSubData(int framebuffer, int numAttachments, long attachments, int x, int y, int width, int height) {
         throw new UnsupportedOperationException();
     }
 
@@ -476,27 +376,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, long value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, long value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, IntBuffer value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, long value) {
         throw new UnsupportedOperationException();
     }
 
@@ -521,11 +406,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetNamedFramebufferParameteriv(int framebuffer, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetNamedFramebufferParameteriv(int framebuffer, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
@@ -536,22 +416,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetNamedFramebufferAttachmentParameteri(int framebuffer, int attachment, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCreateRenderbuffers(int n, long renderbuffers) {
         throw new UnsupportedOperationException();
     }
 
@@ -577,22 +447,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetNamedRenderbufferParameteriv(int renderbuffer, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetNamedRenderbufferParameteri(int renderbuffer, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCreateTextures(int target, int n, long textures) {
         throw new UnsupportedOperationException();
     }
 
@@ -649,11 +509,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
         throw new UnsupportedOperationException();
     }
@@ -680,11 +535,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -719,11 +569,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
         GLES32.glTexSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
     }
@@ -754,22 +599,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
         throw new UnsupportedOperationException();
     }
 
@@ -781,11 +616,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
         GLES32.glCompressedTexSubImage2D(texture, level, xoffset, yoffset, width, height, format, data.limit(), data); // + imageSize = data.limit()
-    }
-
-    @Override
-    public void nglCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -819,11 +649,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglTextureParameterfv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTextureParameterfv(int texture, int pname, FloatBuffer params) {
         GLES32.glTexParameterfv(texture, pname, params);
     }
@@ -831,11 +656,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public void glTextureParameteri(int texture, int pname, int param) {
         GLES32.glTexParameteri(texture, pname, param);
-    }
-
-    @Override
-    public void nglTextureParameterIiv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -850,11 +670,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglTextureParameterIuiv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTextureParameterIuiv(int texture, int pname, IntBuffer params) {
         GLES32.glTexParameterIuiv(texture, pname, params);
     }
@@ -863,11 +678,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     public void glTextureParameterIui(int texture, int pname, int param) {
         tmp_int[0] = param;
         GLES32.glTexParameterIuiv(texture, pname, tmp_int, 0);
-    }
-
-    @Override
-    public void nglTextureParameteriv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -883,11 +693,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public void glBindTextureUnit(int unit, int texture) {
         GLES32.glBindTexture(texture, unit);
-    }
-
-    @Override
-    public void nglGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -921,22 +726,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetCompressedTextureImage(int texture, int level, ByteBuffer pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTextureLevelParameterfv(int texture, int level, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -951,11 +746,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTextureLevelParameteriv(int texture, int level, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTextureLevelParameteriv(int texture, int level, int pname, IntBuffer params) {
         GLES32.glGetTexLevelParameteriv(texture, level, pname, params);
     }
@@ -963,11 +753,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glGetTextureLevelParameteri(int texture, int level, int pname) {
         return GLES32.glGetTexLevelParameteriv(texture, level, pname);
-    }
-
-    @Override
-    public void nglGetTextureParameterfv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -981,11 +766,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTextureParameterIiv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTextureParameterIiv(int texture, int pname, IntBuffer params) {
         GLES32.glGetTexParameterIiv(texture, pname, params);
     }
@@ -993,11 +773,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glGetTextureParameterIi(int texture, int pname) {
         return GLES32.glGetTexParameterIiv(texture, pname);
-    }
-
-    @Override
-    public void nglGetTextureParameterIuiv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1011,11 +786,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTextureParameteriv(int texture, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTextureParameteriv(int texture, int pname, IntBuffer params) {
         GLES32.glGetTexParameteriv(texture, pname, params);
     }
@@ -1023,11 +793,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glGetTextureParameteri(int texture, int pname) {
         return GLES32.glGetTexParameteriv(texture, pname);
-    }
-
-    @Override
-    public void nglCreateVertexArrays(int n, long arrays) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1061,11 +826,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglVertexArrayVertexBuffers(int vaobj, int first, int count, long buffers, long offsets, long strides) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertexArrayAttribFormat(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset) {
         GLES32.glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
     }
@@ -1091,11 +851,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetVertexArrayiv(int vaobj, int pname, long param) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetVertexArrayiv(int vaobj, int pname, IntBuffer param) {
         GLES32.glGetVertexArrayiv(vaobj, pname, param);
     }
@@ -1103,11 +858,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glGetVertexArrayi(int vaobj, int pname) {
         return GLES32.glGetVertexArrayi(vaobj, pname);
-    }
-
-    @Override
-    public void nglGetVertexArrayIndexediv(int vaobj, int index, int pname, long param) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1121,11 +871,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long param) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, LongBuffer param) {
         GLES32.glGetVertexArrayIndexed64iv(vaobj, index, pname, param);
     }
@@ -1133,11 +878,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public long glGetVertexArrayIndexed64i(int vaobj, int index, int pname) {
         return GLES32.glGetVertexArrayIndexed64i(vaobj, index, pname);
-    }
-
-    @Override
-    public void nglCreateSamplers(int n, long samplers) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1151,11 +891,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglCreateProgramPipelines(int n, long pipelines) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glCreateProgramPipelines(IntBuffer pipelines) {
         GLES32.glGenProgramPipelines(pipelines);
     }
@@ -1163,11 +898,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glCreateProgramPipelines() {
         return GLES32.glGenProgramPipelines();
-    }
-
-    @Override
-    public void nglCreateQueries(int target, int n, long ids) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1206,11 +936,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int bufSize, long pixels) {
         GLES32.glGetTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
     }
@@ -1238,11 +963,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
         GLES32.glGetTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
-    }
-
-    @Override
-    public void nglGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, long pixels) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1286,22 +1006,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnMapdv(int var0, int var1, int var2, long var3) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnMapdv(int target, int query, DoubleBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public double glGetnMapd(int target, int query) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnMapfv(int var0, int var1, int var2, long var3) {
         throw new UnsupportedOperationException();
     }
 
@@ -1316,11 +1026,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnMapiv(int var0, int var1, int var2, long var3) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnMapiv(int target, int query, IntBuffer data) {
         throw new UnsupportedOperationException();
     }
@@ -1331,17 +1036,7 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnPixelMapfv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnPixelMapfv(int map, FloatBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnPixelMapuiv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1351,17 +1046,7 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnPixelMapusv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnPixelMapusv(int map, ShortBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnPolygonStipple(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -1372,11 +1057,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
 
     @Override
     public void glGetnPolygonStipple(ByteBuffer pattern) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnTexImage(int tex, int level, int format, int type, int bufSize, long img) {
         throw new UnsupportedOperationException();
     }
 
@@ -1411,11 +1091,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
         GLES32.glReadnPixels(x, y, width, height, format, type, bufSize, pixels);
     }
@@ -1438,11 +1113,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
         GLES32.glReadnPixels(x, y, width, height, format, type, pixels);
-    }
-
-    @Override
-    public void nglGetnColorTable(int var0, int var1, int var2, int var3, long var4) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1471,22 +1141,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnConvolutionFilter(int var0, int var1, int var2, int var3, long var4) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnConvolutionFilter(int target, int format, int type, int bufSize, long image) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetnConvolutionFilter(int target, int format, int type, ByteBuffer image) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnSeparableFilter(int var0, int var1, int var2, int var3, long var4, int var6, long var7, long var9) {
         throw new UnsupportedOperationException();
     }
 
@@ -1501,22 +1161,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnHistogram(int var0, boolean var1, int var2, int var3, int var4, long var5) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnHistogram(int target, boolean reset, int format, int type, int bufSize, long values) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetnHistogram(int target, boolean reset, int format, int type, ByteBuffer values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnMinmax(int var0, boolean var1, int var2, int var3, int var4, long var5) {
         throw new UnsupportedOperationException();
     }
 
@@ -1531,22 +1181,12 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnCompressedTexImage(int target, int level, int bufSize, long img) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnCompressedTexImage(int target, int level, int bufSize, long img) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetnCompressedTexImage(int target, int level, ByteBuffer img) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetnUniformfv(int program, int location, int bufSize, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -1559,11 +1199,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     public float glGetnUniformf(int program, int location) {
         GLES32.glGetnUniformfv(program, location, 1, tmp_float, 0);
         return tmp_float[0];
-    }
-
-    @Override
-    public void nglGetnUniformdv(int program, int location, int bufSize, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1581,11 +1216,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     }
 
     @Override
-    public void nglGetnUniformiv(int program, int location, int bufSize, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetnUniformiv(int program, int location, IntBuffer params) {
         GLES32.glGetnUniformiv(program, location, params.limit(), params);
     }
@@ -1593,11 +1223,6 @@ public class AndroidGL45 extends AndroidGL44 implements GLI45 {
     @Override
     public int glGetnUniformi(int program, int location) {
         return GLES32.glGetnUniformi(program, location);
-    }
-
-    @Override
-    public void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

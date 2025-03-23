@@ -12,11 +12,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public void nglDeleteBuffers(int n, long buffers) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glDeleteBuffers(IntBuffer buffers) {
         GLES11.glDeleteBuffers(buffers.limit(), buffers);
     }
@@ -25,11 +20,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     public void glDeleteBuffers(int buffer) {
         tmp_int[0] = buffer;
         GLES11.glDeleteBuffers(1, tmp_int, 0);
-    }
-
-    @Override
-    public void nglGenBuffers(int n, long buffers) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -46,11 +36,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     @Override
     public boolean glIsBuffer(int buffer) {
         return GLES11.glIsBuffer(buffer);
-    }
-
-    @Override
-    public void nglBufferData(int target, long size, long data, int usage) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -89,11 +74,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public void nglBufferSubData(int target, long offset, long size, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glBufferSubData(int target, long offset, ByteBuffer data) {
         GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
     }
@@ -121,11 +101,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     @Override
     public void glBufferSubData(int target, long offset, DoubleBuffer data) {
         GLES11.glBufferSubData(target, (int) offset, data.limit(), data);
-    }
-
-    @Override
-    public void nglGetBufferSubData(int target, long offset, long size, long data) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -159,11 +134,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public long nglMapBuffer(int target, int access) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public ByteBuffer glMapBuffer(int target, int access) {
         throw new UnsupportedOperationException();
     }
@@ -184,11 +154,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public void nglGetBufferParameteriv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
         GLES11.glGetBufferParameteriv(target, pname, params);
     }
@@ -200,17 +165,7 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public void nglGetBufferPointerv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public long glGetBufferPointer(int target, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGenQueries(int n, long ids) {
         throw new UnsupportedOperationException();
     }
 
@@ -223,11 +178,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     public int glGenQueries() {
         GLES30.glGenQueries(1, tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglDeleteQueries(int n, long ids) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -257,22 +207,12 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
     }
 
     @Override
-    public void nglGetQueryiv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetQueryiv(int target, int pname, IntBuffer params) {
         GLES30.glGetQueryiv(target, pname, params);
     }
 
     @Override
     public int glGetQueryi(int target, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetQueryObjectiv(int id, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -288,11 +228,6 @@ public class AndroidGL15 extends AndroidGL14 implements GLI15 {
 
     @Override
     public int glGetQueryObjecti(int id, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetQueryObjectuiv(int id, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 

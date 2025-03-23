@@ -15,6 +15,7 @@ public class AndroidGL11 implements GLI11 {
     protected static final int[] tmp_int_arg = new int[1];
     protected static final long[] tmp_long = new long[1];
     protected static final float[] tmp_float = new float[1];
+    protected static final IntBuffer tmp_int_buf = createIntBuffer(1);
 
     protected static ShortBuffer createShortBuffer(int size) {
         return ByteBuffer.allocateDirect(size * Short.BYTES)
@@ -124,11 +125,16 @@ public class AndroidGL11 implements GLI11 {
         return new String(buffer);
     }
 
-    protected void setBufferString(String string, int maxLength, ByteBuffer buffer) {
-        if(string.length() > maxLength)
-            string = string.substring(0, maxLength);
+    protected void setBufferString(String string, int[] length, ByteBuffer buffer) {
         buffer.put(string.getBytes());
         buffer.position(0);
+        length[0] = buffer.limit();
+    }
+
+    protected void setBufferString(String string, IntBuffer length, ByteBuffer buffer) {
+        buffer.put(string.getBytes());
+        buffer.position(0);
+        length.put(0, buffer.limit());
     }
 
     protected String[] createStringArray(CharSequence... charSequences) {
@@ -138,6 +144,37 @@ public class AndroidGL11 implements GLI11 {
         for(int i = 0; i < array.length; i++)
             array[i] = charSequences[i].toString();
         return array;
+    }
+
+    protected void writeToBuffer(float[] array, DoubleBuffer buffer) {
+        for(float element: array)
+            buffer.put(element);
+        buffer.position(0);
+    }
+
+    protected void writeToArray(int[] a, long[] b) {
+        for(int i = 0; i < a.length; i++)
+            b[i] = a[i];
+    }
+
+    protected float[] toFloatArray(double[] array) {
+        if(array == null)
+            return null;
+
+        final float[] floatArray = new float[array.length];
+        for(int i = 0; i < array.length; i++)
+            floatArray[i] = (float) array[i];
+        return floatArray;
+    }
+
+    protected FloatBuffer toFloatBuffer(DoubleBuffer buffer) {
+        if(buffer == null)
+            return null;
+
+        final FloatBuffer floatBuffer = createFloatBuffer(buffer.limit());
+        for(int i = 0; i < buffer.limit(); i++)
+            floatBuffer.put(i, (float) buffer.get(i));
+        return floatBuffer;
     }
 
 
@@ -158,11 +195,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glAlphaFunc(int var0, float var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean nglAreTexturesResident(int var0, long var1, long var3) {
         throw new UnsupportedOperationException();
     }
 
@@ -192,11 +224,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglBitmap(int var0, int var1, float var2, float var3, float var4, float var5, long var6) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, ByteBuffer data) {
         throw new UnsupportedOperationException();
     }
@@ -213,11 +240,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glCallList(int var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglCallLists(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -272,11 +294,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglClipPlane(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glClipPlane(int plane, DoubleBuffer equation) {
         throw new UnsupportedOperationException();
     }
@@ -322,17 +339,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor3bv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor3bv(ByteBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -342,17 +349,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor3iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor3fv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -362,17 +359,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor3dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor3dv(DoubleBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor3ubv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -382,17 +369,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor3usv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor3usv(ShortBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor3uiv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -442,17 +419,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor4bv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor4bv(ByteBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor4sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -462,17 +429,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor4iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor4iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor4fv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -482,17 +439,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor4dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor4dv(DoubleBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor4ubv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -502,17 +449,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglColor4usv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glColor4usv(ShortBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColor4uiv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -528,11 +465,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glColorMaterial(int var0, int var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglColorPointer(int var0, int var1, int var2, long var3) {
         throw new UnsupportedOperationException();
     }
 
@@ -607,11 +539,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglDrawElements(int mode, int count, int type, long indices) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glDrawElements(int mode, int count, int type, long indices) {
         GLES11.glDrawElements(mode, count, type, (int) indices);
     }
@@ -634,11 +561,6 @@ public class AndroidGL11 implements GLI11 {
     @Override
     public void glDrawElements(int mode, IntBuffer indices) {
         GLES10.glDrawElements(mode, indices.limit(), GLES20.GL_INT, indices);
-    }
-
-    @Override
-    public void nglDrawPixels(int var0, int var1, int var2, int var3, long var4) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -672,17 +594,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglEdgeFlagv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glEdgeFlagv(ByteBuffer flag) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglEdgeFlagPointer(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -712,22 +624,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglEvalCoord1fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glEvalCoord1fv(FloatBuffer u) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glEvalCoord1d(double var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglEvalCoord1dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -742,22 +644,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglEvalCoord2fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glEvalCoord2fv(FloatBuffer u) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glEvalCoord2d(double var0, double var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglEvalCoord2dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -787,11 +679,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglFeedbackBuffer(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glFeedbackBuffer(int type, FloatBuffer buffer) {
         throw new UnsupportedOperationException();
     }
@@ -812,22 +699,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglFogiv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glFogiv(int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glFogf(int var0, float var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglFogfv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -847,11 +724,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGenTextures(int n, long textures) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGenTextures(IntBuffer textures) {
         GLES10.glGenTextures(textures.limit(), textures);
     }
@@ -860,11 +732,6 @@ public class AndroidGL11 implements GLI11 {
     public int glGenTextures() {
         GLES10.glGenTextures(1, tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglDeleteTextures(int n, long textures) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -879,17 +746,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetClipPlane(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetClipPlane(int plane, DoubleBuffer equation) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetBooleanv(int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -904,11 +761,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetFloatv(int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetFloatv(int pname, FloatBuffer params) {
         GLES11.glGetFloatv(pname, params);
     }
@@ -919,22 +771,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetIntegerv(int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetIntegerv(int pname, IntBuffer params) {
         GLES10.glGetIntegerv(pname, params);
     }
 
     @Override
     public int glGetInteger(int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetDoublev(int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -954,22 +796,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetLightiv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetLightiv(int light, int pname, IntBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetLighti(int light, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetLightfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -984,22 +816,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetMapiv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetMapiv(int target, int query, IntBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetMapi(int target, int query) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetMapfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1014,11 +836,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetMapdv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetMapdv(int target, int query, DoubleBuffer data) {
         throw new UnsupportedOperationException();
     }
@@ -1029,27 +846,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetMaterialiv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetMaterialiv(int face, int pname, IntBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglGetMaterialfv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetMaterialfv(int face, int pname, FloatBuffer data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetPixelMapfv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -1064,22 +866,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetPixelMapusv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetPixelMapusv(int map, ShortBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glGetPixelMapusv(int map, long data) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetPixelMapuiv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -1094,17 +886,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetPointerv(int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public long glGetPointer(int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetPolygonStipple(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1119,18 +901,8 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public long nglGetString(int name) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String glGetString(int name) {
         return GLES10.glGetString(name);
-    }
-
-    @Override
-    public void nglGetTexEnviv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -1140,11 +912,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public int glGetTexEnvi(int env, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTexEnvfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1159,22 +926,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetTexGeniv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTexGeniv(int coord, int pname, IntBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public int glGetTexGeni(int coord, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTexGenfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1189,22 +946,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetTexGendv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTexGendv(int coord, int pname, DoubleBuffer data) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public double glGetTexGend(int coord, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -1239,22 +986,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTexLevelParameteriv(int target, int level, int pname, IntBuffer params) {
         GLES31.glGetTexLevelParameteriv(target, level, pname, params);
     }
 
     @Override
     public int glGetTexLevelParameteri(int target, int level, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -1269,22 +1006,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglGetTexParameteriv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetTexParameteriv(int target, int pname, IntBuffer params) {
         GLES11.glGetTexParameteriv(target, pname, params);
     }
 
     @Override
     public int glGetTexParameteri(int target, int pname) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglGetTexParameterfv(int target, int pname, long params) {
         throw new UnsupportedOperationException();
     }
 
@@ -1329,17 +1056,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglIndexiv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glIndexiv(IntBuffer index) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglIndexubv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1349,27 +1066,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglIndexsv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glIndexsv(ShortBuffer index) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglIndexfv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glIndexfv(FloatBuffer index) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglIndexdv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1380,11 +1082,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glIndexMask(int var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglIndexPointer(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1415,11 +1112,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glInitNames() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglInterleavedArrays(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1479,17 +1171,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglLightModeliv(int var0, long var1) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glLightModeliv(int pname, IntBuffer params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglLightModelfv(int var0, long var1) {
         throw new UnsupportedOperationException();
     }
 
@@ -1509,17 +1191,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglLightiv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glLightiv(int light, int pname, IntBuffer params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglLightfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1544,17 +1216,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglLoadMatrixf(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glLoadMatrixf(FloatBuffer m) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglLoadMatrixd(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1579,17 +1241,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglMap1f(int var0, float var1, float var2, int var3, int var4, long var5) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMap1f(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMap1d(int var0, double var1, double var3, int var5, int var6, long var7) {
         throw new UnsupportedOperationException();
     }
 
@@ -1599,17 +1251,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglMap2f(int var0, float var1, float var2, int var3, int var4, float var5, float var6, int var7, int var8, long var9) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMap2d(int var0, double var1, double var3, int var5, int var6, double var7, double var9, int var11, int var12, long var13) {
         throw new UnsupportedOperationException();
     }
 
@@ -1649,17 +1291,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglMaterialiv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMaterialiv(int face, int pname, IntBuffer params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMaterialfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1674,17 +1306,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglMultMatrixf(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glMultMatrixf(FloatBuffer m) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglMultMatrixd(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1734,17 +1356,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglNormal3fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glNormal3fv(FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglNormal3bv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1754,17 +1366,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglNormal3sv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glNormal3sv(ShortBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglNormal3iv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -1774,17 +1376,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglNormal3dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glNormal3dv(DoubleBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglNormalPointer(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1824,11 +1416,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglPixelMapfv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glPixelMapfv(int map, int size, long values) {
         throw new UnsupportedOperationException();
     }
@@ -1839,22 +1426,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglPixelMapusv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glPixelMapusv(int map, int size, long values) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glPixelMapusv(int map, ShortBuffer values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglPixelMapuiv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -1909,11 +1486,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglPolygonStipple(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glPolygonStipple(ByteBuffer pattern) {
         throw new UnsupportedOperationException();
     }
@@ -1954,11 +1526,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglPrioritizeTextures(int var0, long var1, long var3) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glPrioritizeTextures(IntBuffer textures, FloatBuffer priorities) {
         throw new UnsupportedOperationException();
     }
@@ -1994,17 +1561,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos2iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos2iv(IntBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos2sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2014,17 +1571,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos2fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos2fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos2dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2054,17 +1601,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos3iv(IntBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2074,17 +1611,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos3fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos3fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos3dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2114,17 +1641,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos4iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos4iv(IntBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos4sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2134,17 +1651,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRasterPos4fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRasterPos4fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRasterPos4dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2156,11 +1663,6 @@ public class AndroidGL11 implements GLI11 {
     @Override
     public void glReadBuffer(int src) {
         GLES30.glReadBuffer(src);
-    }
-
-    @Override
-    public void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -2209,17 +1711,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRectiv(long var0, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRectiv(IntBuffer v1, IntBuffer v2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRectsv(long var0, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -2229,17 +1721,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglRectfv(long var0, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glRectfv(FloatBuffer v1, FloatBuffer v2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglRectdv(long var0, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -2276,11 +1758,6 @@ public class AndroidGL11 implements GLI11 {
     @Override
     public void glScissor(int x, int y, int width, int height) {
         GLES10.glScissor(x, y, width, height);
-    }
-
-    @Override
-    public void nglSelectBuffer(int var0, long var1) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -2329,17 +1806,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord1fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord1fv(FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord1sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2349,17 +1816,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord1iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord1iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord1dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2389,17 +1846,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord2fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord2fv(FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord2sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2409,17 +1856,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord2iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord2iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord2dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2449,17 +1886,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord3fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord3fv(FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2469,17 +1896,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord3iv(IntBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord3dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2509,17 +1926,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord4fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord4fv(FloatBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoord4sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2529,27 +1936,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexCoord4iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord4iv(IntBuffer v) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglTexCoord4dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexCoord4dv(DoubleBuffer v) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexCoordPointer(int var0, int var1, int var2, long var3) {
         throw new UnsupportedOperationException();
     }
 
@@ -2584,22 +1976,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexEnviv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexEnviv(int target, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glTexEnvf(int var0, int var1, float var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexEnvfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -2614,22 +1996,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexGeniv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexGeniv(int coord, int pname, IntBuffer params) {
         throw new UnsupportedOperationException();
     }
 
     @Override
     public void glTexGenf(int var0, int var1, float var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexGenfv(int var0, int var1, long var2) {
         throw new UnsupportedOperationException();
     }
 
@@ -2644,17 +2016,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexGendv(int var0, int var1, long var2) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexGendv(int coord, int pname, DoubleBuffer params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -2685,11 +2047,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -2749,11 +2106,6 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexParameteriv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexParameteriv(int target, int pname, IntBuffer params) {
         GLES11.glTexParameteriv(target, pname, params);
     }
@@ -2764,18 +2116,8 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglTexParameterfv(int target, int pname, long params) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glTexParameterfv(int target, int pname, FloatBuffer params) {
         GLES20.glTexParameterfv(target, pname, params);
-    }
-
-    @Override
-    public void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -2805,11 +2147,6 @@ public class AndroidGL11 implements GLI11 {
 
     @Override
     public void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
         throw new UnsupportedOperationException();
     }
 
@@ -2874,17 +2211,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex2fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex2fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertex2sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2894,17 +2221,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex2iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex2iv(IntBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertex2dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2934,17 +2251,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex3fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex3fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertex3sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2954,17 +2261,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex3iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex3iv(IntBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertex3dv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -2994,17 +2291,7 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex4fv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex4fv(FloatBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertex4sv(long var0) {
         throw new UnsupportedOperationException();
     }
 
@@ -3014,27 +2301,12 @@ public class AndroidGL11 implements GLI11 {
     }
 
     @Override
-    public void nglVertex4iv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex4iv(IntBuffer coords) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void nglVertex4dv(long var0) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glVertex4dv(DoubleBuffer coords) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void nglVertexPointer(int var0, int var1, int var2, long var3) {
         throw new UnsupportedOperationException();
     }
 

@@ -14,11 +14,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     }
 
     @Override
-    public void nglDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
         throw new UnsupportedOperationException(); // args
     }
@@ -59,11 +54,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     }
 
     @Override
-    public void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
         GLES30.glGetUniformIndices(program, createStringArray(uniformNames), uniformIndices);
     }
@@ -72,11 +62,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     public int glGetUniformIndices(int program, CharSequence uniformName) {
         GLES30.glGetUniformIndices(program, createStringArray(uniformName), tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -89,11 +74,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
         tmp_int_arg[0] = uniformIndex;
         GLES30.glGetActiveUniformsiv(program, 1, tmp_int_arg, 0, pname, tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -120,11 +100,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     }
 
     @Override
-    public int nglGetUniformBlockIndex(int program, long uniformBlockName) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
         return GLES30.glGetUniformBlockIndex(program, createString(uniformBlockName));
     }
@@ -132,11 +107,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     @Override
     public int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
         return GLES30.glGetUniformBlockIndex(program, uniformBlockName.toString());
-    }
-
-    @Override
-    public void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -148,11 +118,6 @@ public class AndroidGL31 extends AndroidGL30 implements GLI31 {
     public int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
         GLES30.glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, tmp_int, 0);
         return tmp_int[0];
-    }
-
-    @Override
-    public void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
